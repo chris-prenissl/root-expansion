@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://6t1yvpx4gmpd"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ovp4v"]
+[ext_resource type="Texture2D" uid="uid://d2djfnm38p6c1" path="res://Art/icon.svg" id="1_ur21e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dbs1"]
+radius = 106.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k61rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ur21e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ovp4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5dbs1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k61rv")
+animation = &"idle"
