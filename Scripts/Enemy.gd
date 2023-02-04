@@ -2,7 +2,7 @@ extends Area2D
 
 signal hit_by_player
 
-var sprite
+var sprite : Sprite2D
 
 var active = true
 
@@ -24,7 +24,7 @@ var current_state = STATE.aggressive
 var current_timer
 var current_state_index
 
-var state_sprites = [preload("res://Art/icon.svg"), preload("res://Art/PrototypeArt/128square.png")]
+var state_sprites = [preload("res://Art/GlobalGameJam_-_battery_spritesheet.png"), preload("res://Art/PrototypeArt/128square.png")]
 
 
 func _ready():
