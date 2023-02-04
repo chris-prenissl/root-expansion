@@ -7,7 +7,7 @@
 size = Vector2(61.5, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqkjw"]
-size = Vector2(60, 3)
+size = Vector2(80, 22)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kpkap")
@@ -24,5 +24,5 @@ texture = ExtResource("1_c8wdr")
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetector"]
-position = Vector2(0, 32)
+position = Vector2(0, 33)
 shape = SubResource("RectangleShape2D_lqkjw")
