@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=6 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=6 format=3 uid="uid://bdchacgvpl3ba"]
 
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
 [ext_resource type="Texture2D" uid="uid://bq62xlfaeu11w" path="res://Art/GlobalGameJam_-_bg.png" id="1_kg5m8"]

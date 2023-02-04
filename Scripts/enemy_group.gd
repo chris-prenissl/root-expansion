@@ -65,6 +65,7 @@ func group_defeated():
 	var new_energy = load(energy_scene_path).instance()
 	add_child(new_energy)
 	new_energy.position = enemies[enemies.size() - 1].position
+	
 	defeated = true
 	respawn_timer_running = true
 	print("group defeated")
