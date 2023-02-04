@@ -21,6 +21,7 @@ scale = Vector2(0.484, 0.5)
 texture = ExtResource("1_c8wdr")
 
 [node name="FloorDetector" type="Area2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetector"]
 position = Vector2(0, 32)
