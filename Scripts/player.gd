@@ -25,6 +25,8 @@ var decelerating = false
 
 var last_position
 
+var grounded = false
+
 
 var start_amount_of_dashes = 1
 var amount_of_dashes = start_amount_of_dashes
@@ -35,6 +37,7 @@ var dashing = false
 func _ready():
 	floor_detector = $FloorDetector
 	floor_detector.connect("body_entered", on_floor_detector_entered)
+	floor_detector.connect("body_exited", on_floor_detector_exited)
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("dash"):
@@ -65,11 +68,9 @@ func _physics_process(delta):
 	#if decelerating: decelerate
 	#if dashing: dash
 	#move and slide
+	if grounded:
+		refill_dashes()
 	velocity.y += delta * GRAVITY
-	for body in floor_detector.get_overlapping_bodies():
-			if body.is_in_group("Floor"):
-				refill_dashes()
-				
 	if decelerating:
 		speed -= deceleration
 		deceleration += dec_exponential
@@ -98,7 +99,13 @@ func _physics_process(delta):
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
-		refill_dashes()
+		print("enter")
+		grounded = true
+
+func on_floor_detector_exited(body):
+	if body.is_in_group("Floor"):
+		print("exit")
+		grounded = false
 
 func refill_dashes():
 	if amount_of_dashes < start_amount_of_dashes:
