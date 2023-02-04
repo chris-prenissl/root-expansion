@@ -1,20 +1,20 @@
 extends CharacterBody2D
 
-var GRAVITY = 3000
+var GRAVITY = 4000
 
 var floor_detector
 
-var max_dash_distance = 200
+var max_dash_distance = 37
 var min_click_distance_from_player = 100
 var last_click_mouse_position
 var last_global_click_mouse_position
 
 var dir
-var start_acceleration = 30
+var start_acceleration = 100
 var acceleration = start_acceleration
-var acc_exponential = 20
+var acc_exponential = 50
 
-var start_deceleration = 30
+var start_deceleration = 500
 var deceleration = start_deceleration
 var dec_exponential = 5
 
@@ -45,8 +45,8 @@ func _unhandled_input(event):
 			return
 		if dashing:
 			return
-		#if decelerating:
-			#return
+		if decelerating:
+			return
 		start_dashing()
 
 func _physics_process(delta):
@@ -110,7 +110,7 @@ func dash():
 	last_position = position
 
 func add_to_travelled_distance():
-	travelled_distance += (last_position.distance_to(position))
+	travelled_distance = (last_position.distance_to(position))
 	if(travelled_distance >= max_dash_distance):
 		stop_dashing()
 

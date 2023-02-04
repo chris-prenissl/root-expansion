@@ -13,7 +13,6 @@ func _ready():
 
 func on_enemy_hit(number_in_group, player):
 	if number_in_group == last_number_hit + 1:
-		print("hi")
 		enemies[number_in_group].visible = false
 		enemies[number_in_group].active = false
 		last_number_hit += 1
@@ -35,5 +34,10 @@ func highlight_enemy(enemy):
 	enemy.get_child(1).scale = Vector2(0.7, 0.7)
 		
 func stop_combo(player):
+	last_number_hit = -1
+	show_enemy_to_hit_visually()
 	player.amount_of_dashes = 0
 	player.GRAVITY = 3000
+	for e in enemies:
+		if e.active == false:
+			e.respawn()

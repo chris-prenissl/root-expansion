@@ -4,7 +4,7 @@ signal hit_by_player
 
 var sprite
 
-var active = false
+var active = true
 
 var number_in_group
 
@@ -51,3 +51,7 @@ func on_body_entered(body):
 		body.GRAVITY = 3000
 		body.refill_dashes()
 		hit_by_player.emit(number_in_group, body)
+
+func respawn():
+	active = true
+	visible = true
