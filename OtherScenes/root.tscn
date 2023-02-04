@@ -1,12 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyamcanyiagms"]
+[gd_scene format=3 uid="uid://dyamcanyiagms"]
 
-[ext_resource type="Script" path="res://Scripts/Root.gd" id="1_m37xr"]
-
-[node name="Root" type="StaticBody2D" node_paths=PackedStringArray("wall_polygon", "wall_collision_polygon") groups=["Floor"]]
+[node name="Root" type="StaticBody2D" groups=["Floor"]]
 position = Vector2(-4432, -173)
-script = ExtResource("1_m37xr")
-wall_polygon = NodePath("Polygon")
-wall_collision_polygon = NodePath("CollisionPolygon")
 
 [node name="Polygon" type="Polygon2D" parent="." groups=["Floor"]]
 
