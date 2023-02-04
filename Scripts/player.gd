@@ -61,6 +61,7 @@ func _physics_process(delta):
 	move_and_slide()
 	if dashing:		
 		add_to_travelled_distance()
+		pass
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
