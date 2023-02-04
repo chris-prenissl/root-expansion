@@ -46,6 +46,8 @@ func _unhandled_input(event):
 		print(dashing)
 		if dashing:
 			return
+		if decelerating:
+			return
 		last_click_mouse_position = get_local_mouse_position()
 		last_global_click_mouse_position = get_global_mouse_position()
 		if!(position.distance_to(last_global_click_mouse_position) > min_click_distance_from_player):
@@ -68,8 +70,7 @@ func _physics_process(delta):
 	#if decelerating: decelerate
 	#if dashing: dash
 	#move and slide
-	if grounded:
-		refill_dashes()
+	
 	velocity.y += delta * GRAVITY
 	if decelerating:
 		speed -= deceleration
@@ -92,6 +93,8 @@ func _physics_process(delta):
 	if dashing:		
 		travelled_distance += (last_position.distance_to(position))
 		if(travelled_distance >= max_dash_distance):
+			if grounded:
+				refill_dashes()
 			decelerating = true
 			dashing = false
 			GRAVITY = 3000
@@ -99,6 +102,7 @@ func _physics_process(delta):
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
+		refill_dashes()
 		print("enter")
 		grounded = true
 
