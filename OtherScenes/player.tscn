@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://d3q0kqjxgi5ew"]
+[gd_scene load_steps=5 format=3 uid="uid://d3q0kqjxgi5ew"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="1_c8wdr"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_kpkap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sp6d"]
+size = Vector2(61.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqkjw"]
+size = Vector2(60, 3)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_kpkap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_6sp6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.484, 0.5)
+texture = ExtResource("1_c8wdr")
+
+[node name="FloorDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetector"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_lqkjw")
