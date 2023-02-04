@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=46 format=3 uid="uid://capwg17vc578p"]
 
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
-[ext_resource type="Texture2D" uid="uid://bq62xlfaeu11w" path="res://Art/GlobalGameJam_-_bg.png" id="1_kg5m8"]
+[ext_resource type="Texture2D" uid="uid://twqu1q70ri8u" path="res://Art/GlobalGameJam.png" id="1_np0pt"]
+[ext_resource type="Texture2D" uid="uid://bq62xlfaeu11w" path="res://Art/GlobalGameJam_-_root.png" id="3_5rjep"]
 [ext_resource type="Script" path="res://Scripts/playercamera.gd" id="4_npy1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmb41"]
@@ -131,10 +132,9 @@ size = Vector2(781.5, 94)
 position = Vector2(2137, 386)
 
 [node name="BackgroundTree" type="Sprite2D" parent="."]
-position = Vector2(-762, 1286)
-scale = Vector2(24, 26.261)
-texture = ExtResource("1_kg5m8")
-metadata/_edit_lock_ = true
+position = Vector2(-1110, 501)
+scale = Vector2(20, 21.884)
+texture = ExtResource("1_np0pt")
 
 [node name="Player" parent="." instance=ExtResource("1_5p8ow")]
 position = Vector2(-1547, -197)
@@ -142,7 +142,13 @@ position = Vector2(-1547, -197)
 [node name="StaticBody" type="StaticBody2D" parent="." groups=["Floor"]]
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody" groups=["Floor"]]
-polygon = PackedVector2Array(-2350, 1132, -2350, 1132, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041)
+texture_repeat = 3
+texture = ExtResource("3_5rjep")
+texture_offset = Vector2(2.08165e-12, 2.08165e-12)
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
+polygon = PackedVector2Array(-2350, 1132, -2350, 1132, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041)
+uv = PackedVector2Array(-2350, 1132, -2350, 1132, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -2395, 431, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1901, 411, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1937, -68, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1145, -103, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041, -1221, 1041)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" groups=["Floor"]]
 position = Vector2(-1557.92, -46.5807)
@@ -172,259 +178,289 @@ rotation = 1.48528
 scale = Vector2(1.072, 1.072)
 shape = SubResource("RectangleShape2D_xmb41")
 
-[node name="StaticBody1" type="StaticBody2D" parent="."]
+[node name="StaticBody1" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody1"]
-position = Vector2(-40, 14)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody1" groups=["Floor"]]
+texture_repeat = 2
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_5rjep")
+texture_offset = Vector2(2.08165e-12, 2.08165e-12)
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(-2174, -1148, -2174, -1148, -11218, 5684, -11189, 5666, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -11208, 5676, -9328, 5821, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -9222, 5793, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -7375, 4138, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -4235, 3401, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3680, 2291, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -3637, 1821, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -4417, 1874, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -3562, 710, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198, -2932, 198)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-2662, -529)
 rotation = -1.06993
 shape = SubResource("RectangleShape2D_81lji")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-3428, 250)
 rotation = -0.67788
 shape = SubResource("RectangleShape2D_8k4xg")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-4086.35, 1166.37)
 rotation = 0.625178
 shape = SubResource("RectangleShape2D_qavis")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-4024, 1949)
 rotation = -0.0705803
 shape = SubResource("RectangleShape2D_nbp6e")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-3843, 2135)
 rotation = 1.61647
 shape = SubResource("RectangleShape2D_pd8ni")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-4088.55, 2793.19)
 rotation = -1.11185
 shape = SubResource("RectangleShape2D_68p8e")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-5973, 3575)
 rotation = 1.32852
 shape = SubResource("RectangleShape2D_kobpg")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody1"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody1" groups=["Floor"]]
 position = Vector2(-8537, 4849)
 rotation = 0.83766
 shape = SubResource("RectangleShape2D_rcpg5")
 
-[node name="StaticBody2" type="StaticBody2D" parent="."]
+[node name="StaticBody2" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(-4432, -173)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2" groups=["Floor"]]
+texture_repeat = 2
 position = Vector2(39, -13)
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(1136, 4350, 1136, 4350, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -425, 4407, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -449, 4997, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -2109, 5123, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -1933, 5929, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -3032, 5983, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, -2934, 6539, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901, 947, 5901)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(385.533, 4621.62)
 rotation = -0.0400801
 shape = SubResource("RectangleShape2D_lhnqf")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(-1224.98, 5112.99)
 rotation = -0.0759652
 shape = SubResource("RectangleShape2D_m5wln")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(911, 5365)
 rotation = 0.103441
 shape = SubResource("RectangleShape2D_laych")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(-945, 6122)
 rotation = -0.156572
 shape = SubResource("RectangleShape2D_rpap5")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(-1827, 5655)
 rotation = -0.212973
 shape = SubResource("RectangleShape2D_16nlg")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(-2400.46, 6223.19)
 rotation = -0.144125
 shape = SubResource("RectangleShape2D_tvmlx")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2" groups=["Floor"]]
 position = Vector2(-2469, 6005.53)
 rotation = -0.0501417
 shape = SubResource("RectangleShape2D_ff4n5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(-4432, -173)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" groups=["Floor"]]
+texture_repeat = 2
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(3209, 1227, 3209, 1227, 4222, 8335, 4222, 8335, 4222, 8335, 4222, 8335, 4222, 8335, 3695, 8299, 3695, 8299, 3695, 8299, 3695, 8299, 3695, 8299, 2154, 5524, 2154, 5524, 2154, 5524, 2154, 5524, 2154, 5524, 2808, 5488, 2808, 5488, 2808, 5488, 2808, 5488, 2808, 5488, 2862, 4080, 2862, 4080, 2862, 4080, 2862, 4080, 2862, 4080, 1741, 3367, 1741, 3367, 1741, 3367, 1741, 3367, 1741, 3367, 2082, 1257, 2082, 1257, 2082, 1257, 2082, 1257, 2082, 1257)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(3569.56, 4322.66)
 rotation = -0.140989
 shape = SubResource("RectangleShape2D_tsu4m")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(1991.15, 2182.1)
 rotation = 0.161169
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ews8d")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(2378, 3659)
 rotation = 0.572428
 shape = SubResource("RectangleShape2D_nessy")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(3024.82, 4740.97)
 rotation = 0.0297514
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i7q3x")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(2492.67, 5540.45)
 rotation = 1.53404
 shape = SubResource("RectangleShape2D_mybuk")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" groups=["Floor"]]
 position = Vector2(2803.73, 6543.02)
 rotation = 1.06657
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pj0d7")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(-1, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2" groups=["Floor"]]
 position = Vector2(-10, -8)
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(-3306, 1390, -3306, 1390, -2738, 1410, -2738, 1410, -2738, 1410, -2764.02, 1573.36, -2806, 1837, -2806, 1837, -2806, 1837, -3409, 1722, -3409, 1722, -3409, 1722)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" groups=["Floor"]]
 position = Vector2(-3040, 1463.75)
 rotation = 0.0237678
 shape = SubResource("RectangleShape2D_ppdv7")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" groups=["Floor"]]
 position = Vector2(-3078.48, 1620.22)
 rotation = -2.98243
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yvwkw")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["Floor"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3" groups=["Floor"]]
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(-3392, 2931, -3392, 2931, -2638, 2921, -2638, 2921, -2638, 2921, -2638, 2921, -2638, 2921, -2638, 2921, -2669, 3226, -2669, 3226, -2669, 3226, -2669, 3226, -2669, 3226, -2669, 3226, -3339, 3259, -3339, 3259, -3339, 3259, -3339, 3259, -3339, 3259, -3339, 3259)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" groups=["Floor"]]
 position = Vector2(-3011.51, 3091.92)
 rotation = -0.00451659
 shape = SubResource("RectangleShape2D_2bk54")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." groups=["Floor"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4" groups=["Floor"]]
+texture_repeat = 2
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(697, -1408, 697, -1408, 4046, 176, 4046, 176, 4046, 176, 4046, 176, 4046, 176, 4046, 176, 4046, 176, 4046, 176, 4199, 5963, 4199, 5963, 4199, 5963, 4199, 5963, 4199, 5963, 4199, 5963, 4199, 5963, 4199, 5963, -50, 5753, -50, 5753, -50, 5753, -50, 5753, -50, 5753, -50, 5753, -50, 5753, -50, 5753, -61, 5199, -61, 5199, -61, 5199, -61, 5199, -61, 5199, -61, 5199, -61, 5199, -61, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 2971, 5199, 3067, 4136, 3067, 4136, 3067, 4136, 3067, 4136, 3067, 4136, 3067, 4136, 3067, 4136, 3067, 4136, 2321, 3434, 2321, 3434, 2321, 3434, 2321, 3434, 2321, 3434, 2321, 3434, 2321, 3434, 2321, 3434, 431, 3372, 431, 3372, 431, 3372, 431, 3372, 431, 3372, 431, 3372, 431, 3372, 431, 3372, 459, 2727, 459, 2727, 459, 2727, 459, 2727, 459, 2727, 459, 2727, 459, 2727, 459, 2727, 985, 1647, 985, 1647, 985, 1647, 985, 1647, 985, 1647, 985, 1647, 985, 1647, 985, 1647, 284, 1432, 284, 1432, 284, 1432, 284, 1432, 284, 1432, 284, 1432, 284, 1432, 284, 1432, 335, 922, 335, 922, 335, 922, 335, 922, 335, 922, 335, 922, 335, 922, 335, 922, 1150, 922, 1150, 922, 1150, 922, 1150, 922, 1150, 922, 1150, 922, 1150, 922, 1150, 922)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(1073.52, -233.33)
 rotation = -0.209141
 shape = SubResource("RectangleShape2D_qcvar")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(792, 1169.5)
 shape = SubResource("RectangleShape2D_v2sar")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(781, 1358)
 rotation = 0.296206
 shape = SubResource("RectangleShape2D_gwbms")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(827, 2222)
 rotation = 0.457706
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ccwxq")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(1425.6, 3093.52)
 rotation = 0.0329674
 shape = SubResource("RectangleShape2D_f6hik")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(2807.58, 3684.53)
 rotation = -0.846004
 shape = SubResource("RectangleShape2D_ur14w")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(3288, 4689)
 rotation = 0.10824
 shape = SubResource("RectangleShape2D_joket")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(1495.5, 5488)
 shape = SubResource("RectangleShape2D_5fqh5")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D4" groups=["Floor"]]
 position = Vector2(2986, 5614)
 rotation = 0.050993
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gkmyx")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="." groups=["Floor"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5" groups=["Floor"]]
+texture_repeat = 2
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(3836, 5967, 3836, 5967, 5084, 6003, 5084, 6003, 5084, 6003, 5084, 6003, 5084, 6003, 5084, 6003, 5084, 6003, 5084, 6003, 4960, 8263, 4960, 8263, 4960, 8263, 4960, 8263, 4960, 8263, 4960, 8263, 4960, 8263, 4960, 8263, -296, 8187, -296, 8187, -296, 8187, -296, 8187, -296, 8187, -296, 8187, -296, 8187, -296, 8187, -344, 7195, -344, 7195, -344, 7195, -344, 7195, -344, 7195, -344, 7195, -344, 7195, -344, 7195, 3856, 7267, 3856, 7267, 3856, 7267, 3856, 7267, 3856, 7267, 3856, 7267, 3856, 7267, 3856, 7267)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" groups=["Floor"]]
 position = Vector2(4095, 6691.25)
 shape = SubResource("RectangleShape2D_jbqfb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5" groups=["Floor"]]
 position = Vector2(1783.69, 7315.71)
 rotation = 0.0221603
 shape = SubResource("RectangleShape2D_a8e1a")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+[node name="StaticBody2D6" type="StaticBody2D" parent="." groups=["Floor"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6" groups=["Floor"]]
+texture_repeat = 2
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(-3303, 6129, -3303, 6129, -1993, 6068, -1993, 6068, -1993, 6068, -1993, 6068, -1993, 6068, -1993, 6068, -1993, 6068, -1993, 6068, -1943, 6820, -1943, 6820, -1943, 6820, -1943, 6820, -1943, 6820, -1943, 6820, -1943, 6820, -1943, 6820, -3208, 6835, -3208, 6835, -3208, 6835, -3208, 6835, -3208, 6835, -3208, 6835, -3208, 6835, -3208, 6835)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" groups=["Floor"]]
 position = Vector2(-2630.5, 6462)
 rotation = -0.0516109
 shape = SubResource("RectangleShape2D_8tmun")
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+[node name="StaticBody2D7" type="StaticBody2D" parent="." groups=["Floor"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D7"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D7" groups=["Floor"]]
+texture_repeat = 2
+texture = ExtResource("3_5rjep")
+texture_scale = Vector2(0.5, 0.5)
+texture_rotation = 0.698132
 polygon = PackedVector2Array(-9375, 5831, -9375, 5831, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -9471, 7199, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8103, 7159, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -8071, 6559, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7287, 6607, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -7279, 7151, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1063, 7183, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -1095, 8151, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11335, 7943, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679, -11255, 5679)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" groups=["Floor"]]
 position = Vector2(-5276.25, 7539)
 shape = SubResource("RectangleShape2D_7wgre")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D7" groups=["Floor"]]
 position = Vector2(-9655, 6467)
 rotation = 0.0740221
 shape = SubResource("RectangleShape2D_v66q7")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D7" groups=["Floor"]]
 position = Vector2(-7683, 6890)
 shape = SubResource("RectangleShape2D_whivh")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D7" groups=["Floor"]]
 position = Vector2(-7684, 6651)
 rotation = 0.0707618
 shape = SubResource("RectangleShape2D_ce5ok")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1547, -197)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("4_npy1q")

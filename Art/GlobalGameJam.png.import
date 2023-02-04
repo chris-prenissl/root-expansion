@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq62xlfaeu11w"
-path="res://.godot/imported/GlobalGameJam_-_bg.png-3da617a374f6cfdbbf782645897fbf00.ctex"
+uid="uid://twqu1q70ri8u"
+path="res://.godot/imported/GlobalGameJam.png-c19bd257e985f3d9327e1e15b7927021.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/GlobalGameJam_-_bg.png"
-dest_files=["res://.godot/imported/GlobalGameJam_-_bg.png-3da617a374f6cfdbbf782645897fbf00.ctex"]
+source_file="res://Art/GlobalGameJam.png"
+dest_files=["res://.godot/imported/GlobalGameJam.png-c19bd257e985f3d9327e1e15b7927021.ctex"]
 
 [params]
 
