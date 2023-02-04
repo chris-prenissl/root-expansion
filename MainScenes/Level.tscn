@@ -12,7 +12,7 @@ size = Vector2(1158, 128)
 script = ExtResource("1_lgy0q")
 
 [node name="Player" parent="." instance=ExtResource("2_0rlgs")]
-position = Vector2(816, 460)
+position = Vector2(728, 191)
 
 [node name="Enemy" parent="." instance=ExtResource("3_d4gfp")]
 position = Vector2(333, 457)
