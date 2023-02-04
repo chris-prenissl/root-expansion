@@ -1,6 +1,12 @@
-extends Area2D
+extends Area2D 
+
+signal hit_by_player
 
 var sprite
+
+var active = false
+
+var number_in_group
 
 enum STATE{
 	vulnerable,
@@ -39,7 +45,9 @@ func change_state_visually():
 	sprite.texture = state_sprites[current_state_index]
 
 func on_body_entered(body):
+	if !active:
+		return
 	if body.is_in_group("Player"):
 		body.GRAVITY = 3000
 		body.refill_dashes()
-		queue_free()
+		hit_by_player.emit(number_in_group, body)

@@ -43,74 +43,81 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("dash"):
 		if amount_of_dashes <= 0:
 			return
-		print(dashing)
 		if dashing:
 			return
-		if decelerating:
-			return
-		last_click_mouse_position = get_local_mouse_position()
-		last_global_click_mouse_position = get_global_mouse_position()
-		if!(position.distance_to(last_global_click_mouse_position) > min_click_distance_from_player):
-			return
-		amount_of_dashes -= 1
-		travelled_distance = 0
-		acceleration = start_acceleration
-		deceleration = start_deceleration
-		dashing = true
-		GRAVITY = 0
-		speed = 0
-		var mouse_direction = last_click_mouse_position.normalized()
-		dir = mouse_direction
-		velocity = Vector2(speed * mouse_direction.x, speed * mouse_direction.y)
-	if Input.is_action_pressed("ui_cancel"):
-		print(dashing)
+		#if decelerating:
+			#return
+		start_dashing()
 
 func _physics_process(delta):
-	#apply gravity
-	#if decelerating: decelerate
-	#if dashing: dash
-	#move and slide
-	
-	velocity.y += delta * GRAVITY
+	apply_gravity(delta)
 	if decelerating:
-		speed -= deceleration
-		deceleration += dec_exponential
-		velocity = Vector2(speed * dir.x, speed * dir.y)
-		if speed <= 0:
-			velocity = Vector2.ZERO
-			speed = 0
-			decelerating = false
-		
+		decelerate()	
 	if dashing:
-		speed += acceleration
-		acceleration += acc_exponential
-		if speed >= max_speed:
-			speed = max_speed
-		velocity = Vector2(speed * dir.x, speed * dir.y)
-		last_position = position
-		
+		dash()		
 	move_and_slide()
 	if dashing:		
-		travelled_distance += (last_position.distance_to(position))
-		if(travelled_distance >= max_dash_distance):
-			if grounded:
-				refill_dashes()
-			decelerating = true
-			dashing = false
-			GRAVITY = 3000
-			velocity = Vector2.ZERO
+		add_to_travelled_distance()
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
 		refill_dashes()
-		print("enter")
 		grounded = true
 
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
-		print("exit")
 		grounded = false
 
 func refill_dashes():
 	if amount_of_dashes < start_amount_of_dashes:
 		amount_of_dashes = start_amount_of_dashes
+
+func start_dashing():
+	last_click_mouse_position = get_local_mouse_position()
+	last_global_click_mouse_position = get_global_mouse_position()
+	if!(position.distance_to(last_global_click_mouse_position) > min_click_distance_from_player):
+		return
+		
+	amount_of_dashes -= 1
+	travelled_distance = 0
+	acceleration = start_acceleration
+	deceleration = start_deceleration
+	dashing = true
+	GRAVITY = 0
+	speed = 0
+	var mouse_direction = last_click_mouse_position.normalized()
+	dir = mouse_direction
+	velocity = Vector2(speed * mouse_direction.x, speed * mouse_direction.y)
+	
+func apply_gravity(delta):
+	velocity.y += delta * GRAVITY
+
+func decelerate():
+	speed -= deceleration
+	deceleration += dec_exponential
+	velocity = Vector2(speed * dir.x, speed * dir.y)
+	if speed <= 0:
+		velocity = Vector2.ZERO
+		speed = 0
+		decelerating = false
+
+func dash():
+	speed += acceleration
+	acceleration += acc_exponential
+	if speed >= max_speed:
+		speed = max_speed
+	velocity = Vector2(speed * dir.x, speed * dir.y)
+	last_position = position
+
+func add_to_travelled_distance():
+	travelled_distance += (last_position.distance_to(position))
+	if(travelled_distance >= max_dash_distance):
+		stop_dashing()
+
+func stop_dashing():
+	if grounded:
+		refill_dashes()
+	decelerating = true
+	dashing = false
+	GRAVITY = 3000
+	velocity = Vector2.ZERO

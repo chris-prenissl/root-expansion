@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_lgy0q"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="2_0rlgs"]
-[ext_resource type="PackedScene" uid="uid://d3if6q3n7o0kq" path="res://OtherScenes/Enemy.tscn" id="3_d4gfp"]
 [ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="4_sbxu4"]
+[ext_resource type="PackedScene" uid="uid://b66l1hcdtbl2j" path="res://OtherScenes/enemy_group.tscn" id="5_s1t5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iinwh"]
 size = Vector2(1158, 128)
@@ -13,18 +13,6 @@ script = ExtResource("1_lgy0q")
 
 [node name="Player" parent="." instance=ExtResource("2_0rlgs")]
 position = Vector2(728, 191)
-
-[node name="Enemy" parent="." instance=ExtResource("3_d4gfp")]
-position = Vector2(333, 457)
-pattern_timers = [0.5, 0.5]
-
-[node name="Enemy2" parent="." instance=ExtResource("3_d4gfp")]
-position = Vector2(532, 335)
-pattern_timers = [0.5, 0.5]
-
-[node name="Enemy3" parent="." instance=ExtResource("3_d4gfp")]
-position = Vector2(324, 201)
-pattern_timers = [0.5, 0.5]
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(547, 659)
@@ -37,3 +25,6 @@ shape = SubResource("RectangleShape2D_iinwh")
 position = Vector2(31, 5)
 scale = Vector2(9.03906, 1)
 texture = ExtResource("4_sbxu4")
+
+[node name="EnemyGroup" parent="." instance=ExtResource("5_s1t5r")]
+position = Vector2(466, 125)
