@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://kgcv2ibs171h"]
+[gd_scene load_steps=5 format=3 uid="uid://kgcv2ibs171h"]
 
+[ext_resource type="Script" path="res://Scripts/energy.gd" id="1_rhbqw"]
 [ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="1_wwcxq"]
 
-[node name="Energy" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dubu"]
+size = Vector2(10, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nm2w"]
+radius = 9.0
+
+[node name="Energy" type="CharacterBody2D"]
+script = ExtResource("1_rhbqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.623529, 1, 0.733333, 1)
@@ -10,3 +18,9 @@ scale = Vector2(0.078125, 0.109375)
 texture = ExtResource("1_wwcxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1dubu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2nm2w")

@@ -2,7 +2,7 @@ extends Area2D
 
 signal hit_by_player
 
-var sprite : Sprite2D
+var sprite : AnimatedSprite2D
 
 var active = true
 
@@ -24,11 +24,10 @@ var current_state = STATE.aggressive
 var current_timer
 var current_state_index
 
-var state_sprites = [preload("res://Art/GlobalGameJam_-_battery_spritesheet.png"), preload("res://Art/PrototypeArt/128square.png")]
-
 
 func _ready():
 	sprite = $Sprite2D
+	sprite.play()
 	current_state_index = 0
 	current_timer = pattern_timers[current_state_index]
 	current_state = pattern[current_state_index]
@@ -46,7 +45,11 @@ func _process(delta):
 		current_state = pattern[current_state_index]
 
 func change_state_visually():
-	sprite.texture = state_sprites[current_state_index]
+	if current_state == STATE.vulnerable:
+		sprite.animation = "aggressive"
+	elif current_state == STATE.aggressive:
+		sprite.animation = "vulnerable"
+	sprite.play()
 
 func on_body_entered(body):
 	if !active:

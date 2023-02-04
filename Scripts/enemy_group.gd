@@ -7,6 +7,8 @@ var last_number_hit = -1
 
 var defeated = false
 
+var dropped_loot = false
+
 var start_combo_timer = 1 
 var combo_timer = start_combo_timer
 var combo_timer_running = false
@@ -62,10 +64,13 @@ func stop_combo(player):
 			e.respawn()
 
 func group_defeated():
-	var new_energy = load(energy_scene_path).instance()
-	add_child(new_energy)
-	new_energy.position = enemies[enemies.size() - 1].position
-	
+	if dropped_loot == false:
+		dropped_loot = true
+		var new_energy = load(energy_scene_path).instantiate()		
+		owner.call_deferred("add_child", new_energy)
+		new_energy.position = enemies[enemies.size() - 1].position
+		
+		
 	defeated = true
 	respawn_timer_running = true
 	print("group defeated")

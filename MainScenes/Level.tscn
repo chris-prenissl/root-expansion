@@ -31,4 +31,5 @@ texture = ExtResource("4_sbxu4")
 position = Vector2(466, 125)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.561, 0.561)
 script = ExtResource("5_255cw")

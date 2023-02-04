@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3if6q3n7o0kq"]
+[gd_scene load_steps=9 format=3 uid="uid://d3if6q3n7o0kq"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ovp4v"]
 [ext_resource type="Texture2D" uid="uid://c6fhnf7edwj1s" path="res://Art/GlobalGameJam_-_battery_spritesheet.png" id="2_p3j5s"]
@@ -6,15 +6,55 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dbs1"]
 radius = 36.0139
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg3m5"]
+atlas = ExtResource("2_p3j5s")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34o7p"]
+atlas = ExtResource("2_p3j5s")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5wic"]
+atlas = ExtResource("2_p3j5s")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvwfn"]
+atlas = ExtResource("2_p3j5s")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ael2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg3m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34o7p")
+}],
+"loop": true,
+"name": &"aggressive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5wic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvwfn")
+}],
+"loop": true,
+"name": &"vulnerable",
+"speed": 5.0
+}]
+
 [node name="Enemy" type="Area2D"]
 script = ExtResource("1_ovp4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5dbs1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_p3j5s")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 200, 200)
+sprite_frames = SubResource("SpriteFrames_ael2r")
+animation = &"vulnerable"

@@ -30,6 +30,8 @@ var last_position
 
 var grounded = false
 
+var amount_of_energy = 0
+
 
 var start_amount_of_dashes = 1
 var amount_of_dashes = start_amount_of_dashes
@@ -135,3 +137,5 @@ func take_damage():
 func game_over():
 	print("game over!")
 	
+func add_energy():
+	amount_of_energy += 1
