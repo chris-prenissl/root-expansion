@@ -8,8 +8,14 @@ script = ExtResource("1_u6sox")
 
 [node name="Enemy3" parent="." instance=ExtResource("1_uv0l8")]
 position = Vector2(-3, 239)
+pattern = null
+pattern_timers = null
 
 [node name="Enemy2" parent="." instance=ExtResource("1_uv0l8")]
 position = Vector2(198, 89)
+pattern = null
+pattern_timers = null
 
 [node name="Enemy" parent="." instance=ExtResource("1_uv0l8")]
+pattern = null
+pattern_timers = null

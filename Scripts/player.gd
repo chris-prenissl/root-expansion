@@ -2,17 +2,20 @@ extends CharacterBody2D
 
 var GRAVITY = 4000
 
+var start_health = 1 
+var current_health = start_health
+
 var floor_detector
 
-var max_dash_distance = 37
+var max_dash_distance = 45
 var min_click_distance_from_player = 100
 var last_click_mouse_position
 var last_global_click_mouse_position
 
 var dir
-var start_acceleration = 100
+var start_acceleration = 300
 var acceleration = start_acceleration
-var acc_exponential = 50
+var acc_exponential = 200
 
 var start_deceleration = 500
 var deceleration = start_deceleration
@@ -119,5 +122,6 @@ func stop_dashing():
 		refill_dashes()
 	decelerating = true
 	dashing = false
+	
 	GRAVITY = 3000
 	velocity = Vector2.ZERO

@@ -8,6 +8,7 @@ var active = true
 
 var number_in_group
 
+
 enum STATE{
 	vulnerable,
 	aggressive
@@ -30,7 +31,8 @@ func _ready():
 	current_timer = pattern_timers[current_state_index]
 	current_state = pattern[current_state_index]
 	connect("body_entered", on_body_entered)
-
+	connect("body_exited", on_body_exited)
+	
 func _process(delta):
 	current_timer -= delta
 	if current_timer <= 0:
@@ -48,9 +50,17 @@ func on_body_entered(body):
 	if !active:
 		return
 	if body.is_in_group("Player"):
-		body.GRAVITY = 3000
-		body.refill_dashes()
-		hit_by_player.emit(number_in_group, body)
+		if current_state == STATE.vulnerable:
+			body.GRAVITY = 3000
+			body.refill_dashes()
+			hit_by_player.emit(number_in_group, body)
+		elif current_state == STATE.aggressive:
+			pass
+
+func on_body_exited(body):
+	if body.is_in_group("Player"):
+		pass
+
 
 func respawn():
 	active = true
