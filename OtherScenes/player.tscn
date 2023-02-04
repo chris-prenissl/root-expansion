@@ -1,28 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3q0kqjxgi5ew"]
 
-[ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="1_c8wdr"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kpkap"]
+[ext_resource type="Texture2D" uid="uid://dab53pvbwpq8u" path="res://Art/GlobalGameJam_-_char_spritesheet.png" id="2_5l28a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sp6d"]
-size = Vector2(61.5, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnxqq"]
+radius = 37.2634
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqkjw"]
-size = Vector2(80, 22)
+size = Vector2(68, 18)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kpkap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0)
-shape = SubResource("RectangleShape2D_6sp6d")
+shape = SubResource("CircleShape2D_lnxqq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.484, 0.5)
-texture = ExtResource("1_c8wdr")
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-10, 2.08165e-12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5l28a")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 200, 200)
 
 [node name="FloorDetector" type="Area2D" parent="."]
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetector"]
-position = Vector2(0, 33)
+position = Vector2(0, 31)
 shape = SubResource("RectangleShape2D_lqkjw")

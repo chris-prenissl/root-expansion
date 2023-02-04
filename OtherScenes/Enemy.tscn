@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3if6q3n7o0kq"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ovp4v"]
-[ext_resource type="Texture2D" uid="uid://d2djfnm38p6c1" path="res://Art/icon.svg" id="1_ur21e"]
+[ext_resource type="Texture2D" uid="uid://c6fhnf7edwj1s" path="res://Art/GlobalGameJam_-_battery_spritesheet.png" id="2_p3j5s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dbs1"]
 radius = 36.0139
@@ -12,6 +12,9 @@ script = ExtResource("1_ovp4v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5dbs1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ur21e")
+texture = ExtResource("2_p3j5s")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 200, 200)
