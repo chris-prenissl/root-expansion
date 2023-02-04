@@ -125,3 +125,12 @@ func stop_dashing():
 	
 	GRAVITY = 3000
 	velocity = Vector2.ZERO
+
+func take_damage():
+	current_health -= 1 
+	if current_health <= 0:
+		game_over()
+
+func game_over():
+	print("game over!")
+	

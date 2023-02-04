@@ -15,6 +15,8 @@ var start_respawn_timer = 5
 var respawn_timer = start_respawn_timer
 var respawn_timer_running = false
 
+@export var energy_scene_path = ""
+
 func _ready():
 	player = owner.get_node("Player")
 	enemies = get_children()
@@ -60,6 +62,9 @@ func stop_combo(player):
 			e.respawn()
 
 func group_defeated():
+	var new_energy = load(energy_scene_path).instance()
+	add_child(new_energy)
+	new_energy.position = enemies[enemies.size() - 1].position
 	defeated = true
 	respawn_timer_running = true
 	print("group defeated")

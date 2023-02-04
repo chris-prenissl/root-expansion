@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd6m4ocog6gwe"]
+[gd_scene load_steps=7 format=3 uid="uid://cd6m4ocog6gwe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_lgy0q"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="2_0rlgs"]
 [ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="4_sbxu4"]
+[ext_resource type="Script" path="res://Scripts/playercamera.gd" id="5_255cw"]
 [ext_resource type="PackedScene" uid="uid://b66l1hcdtbl2j" path="res://OtherScenes/enemy_group.tscn" id="5_s1t5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iinwh"]
@@ -28,3 +29,6 @@ texture = ExtResource("4_sbxu4")
 
 [node name="EnemyGroup" parent="." instance=ExtResource("5_s1t5r")]
 position = Vector2(466, 125)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_255cw")

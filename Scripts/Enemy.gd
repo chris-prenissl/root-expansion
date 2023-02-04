@@ -9,6 +9,8 @@ var active = true
 var number_in_group
 
 
+
+
 enum STATE{
 	vulnerable,
 	aggressive
@@ -55,7 +57,7 @@ func on_body_entered(body):
 			body.refill_dashes()
 			hit_by_player.emit(number_in_group, body)
 		elif current_state == STATE.aggressive:
-			pass
+			body.take_damage()
 
 func on_body_exited(body):
 	if body.is_in_group("Player"):
