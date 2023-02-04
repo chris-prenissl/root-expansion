@@ -57,7 +57,7 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	apply_gravity(delta)
 	if decelerating:
-		decelerate()	
+		decelerate()
 	if dashing:
 		dash()		
 	move_and_slide()
@@ -117,7 +117,7 @@ func dash():
 
 func add_to_travelled_distance():
 	travelled_distance = (last_position.distance_to(position))
-	if(travelled_distance >= max_dash_distance):
+	if(travelled_distance >= max_dash_distance || is_on_wall()):
 		stop_dashing()
 
 func stop_dashing():
