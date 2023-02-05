@@ -142,6 +142,5 @@ func game_over():
 	print("game over!")
 	
 func add_energy():
-	print("heello")
 	amount_of_energy += 1
 	print(amount_of_energy)

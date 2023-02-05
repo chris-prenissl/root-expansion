@@ -1,19 +1,34 @@
-extends CharacterBody2D
+extends Area2D
 
-var player 
-var speed = 200
-var area 
+@export var max_speed: float
+@export var starting_speed: float
+var current_speed: float
+
+var player: Node2D
 
 func _ready():
-	area = get_node("Area2D")
-	player = get_parent().get_node("Player")
-	area.connect("body_entered", on_body_entered)
+	player = owner.get_node("Player")
+	current_speed = starting_speed
+	
+func _process(delta):
+	move_towards_player(delta)
 
-func _physics_process(delta):
-	pass  
-
-func on_body_entered(body):
-	if body.is_in_group("Player"):
-		print("hello 123")
-		body.add_energy()
-		queue_free()
+func move_towards_player(delta: float):
+	destroy_and_add_energy_when_player_hit()
+	
+	var direction = position.direction_to(player.position)
+	position += direction*current_speed*delta 
+	
+	if current_speed > max_speed:
+		current_speed = max_speed
+	else:
+		current_speed *= 2
+	
+	
+func destroy_and_add_energy_when_player_hit():
+	if has_overlapping_bodies():
+		var collisions = get_overlapping_bodies()
+		for body in collisions:
+			if body.is_in_group("Player"):
+				body.add_energy()
+				queue_free()

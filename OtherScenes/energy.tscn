@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kgcv2ibs171h"]
+[gd_scene load_steps=7 format=3 uid="uid://kgcv2ibs171h"]
 
 [ext_resource type="Script" path="res://Scripts/energy.gd" id="1_rhbqw"]
 [ext_resource type="Texture2D" uid="uid://6h0pf7ptai44" path="res://Art/spritesheet.png" id="2_sy565"]
@@ -25,23 +25,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dubu"]
-size = Vector2(10, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqh7q"]
+radius = 30.5369
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2nm2w"]
-radius = 9.0
-
-[node name="Energy" type="CharacterBody2D"]
+[node name="Energy" type="Area2D"]
 script = ExtResource("1_rhbqw")
+max_speed = 500.0
+starting_speed = 50.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jag1s")
 frame_progress = 0.513726
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1dubu")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_2nm2w")
+shape = SubResource("CircleShape2D_oqh7q")
