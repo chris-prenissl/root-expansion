@@ -33,21 +33,34 @@ var last_position
 var grounded = false
 
 var amount_of_energy = 0
+var energy_text
 
 
-var start_amount_of_dashes = 1
+var start_amount_of_dashes = 2
 var amount_of_dashes = start_amount_of_dashes
 
 var travelled_distance = 0
 var dashing = false
 
+var level
+
+var dashing_active = true
+
+signal landed_on_tree_platform
+
 func _ready():
+	level = owner
+	level.next_level_energy_requirement = level.level_energy_requirements[1]
+	energy_text = level.get_node("CanvasLayer/UI/Label")
+	show_energy_text()
 	start_pos = position
 	floor_detector = $FloorDetector
 	floor_detector.connect("body_entered", on_floor_detector_entered)
 	floor_detector.connect("body_exited", on_floor_detector_exited)
 
 func _unhandled_input(event):
+	if !dashing_active:
+		return
 	if Input.is_action_just_pressed("dash"):
 		if amount_of_dashes <= 0:
 			return
@@ -75,6 +88,10 @@ func on_floor_detector_entered(body):
 		if body.is_in_group("Checkpoint"):
 			print(body.get_child(0).position)
 			last_checkpoint = body.get_child(0).global_position
+			
+		if body.is_in_group("Treeplatform"):
+			print("hi")
+			emit_signal("landed_on_tree_platform")
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
 		grounded = false
@@ -148,8 +165,10 @@ func game_over():
 	amount_of_energy -= 1
 	if amount_of_energy < 0:
 		amount_of_energy = 0 
+	
 	else:
 		owner.make_group_lootable_again()
+	show_energy_text()
 	respawn()
 
 func respawn():
@@ -161,6 +180,7 @@ func respawn():
 func add_energy():
 	amount_of_energy += 1
 	print(amount_of_energy)
+	show_energy_text()
 
 func animate_sprite(facing_right: bool, moving_up: bool, dashing: bool, idle: bool, falling: bool):
 	sprite.flip_h = facing_right
@@ -181,3 +201,6 @@ func animate_sprite(facing_right: bool, moving_up: bool, dashing: bool, idle: bo
 		sprite.animation = "landing"
 	
 	sprite.play()
+
+func show_energy_text():
+	energy_text.text = str(amount_of_energy) + "/" + str(level.next_level_energy_requirement)

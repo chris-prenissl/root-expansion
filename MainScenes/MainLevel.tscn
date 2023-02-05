@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=73 format=3 uid="uid://cljl2pwvr85cy"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/enemy_group.gd" id="7_ygorh"]
 [ext_resource type="PackedScene" uid="uid://d3if6q3n7o0kq" path="res://OtherScenes/Enemy.tscn" id="8_j14jn"]
 [ext_resource type="Script" path="res://Scripts/limit.gd" id="9_mm5ub"]
+[ext_resource type="FontFile" uid="uid://c4lswrdc2715c" path="res://Fonts/CabinSketch-Bold.ttf" id="11_13syv"]
+[ext_resource type="Texture2D" uid="uid://cbbbj4nhgu18w" path="res://Art/GlobalGameJam_-_energy_1.png" id="11_duke1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y83s"]
 size = Vector2(1357.25, 35.1221)
@@ -191,8 +193,6 @@ size = Vector2(3140.07, 116.454)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3b8v"]
 size = Vector2(5529, 1265)
 
-[sub_resource type="SystemFont" id="SystemFont_o4p7g"]
-
 [node name="MainLevel" type="Node2D"]
 position = Vector2(2137, 386)
 script = ExtResource("1_hajn3")
@@ -203,7 +203,7 @@ scale = Vector2(35.9391, 36.0561)
 texture = ExtResource("1_2lm4c")
 
 [node name="Player" parent="." instance=ExtResource("1_5p8ow")]
-position = Vector2(-8103, -8320)
+position = Vector2(-9056, -8861)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-8545, -4043)
@@ -2025,7 +2025,7 @@ polygon = PackedVector2Array(-6917, -5583, -6850, -5500, -6453, -5541, -6496, -5
 position = Vector2(5, -3)
 polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
+[node name="StaticBody2D9" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor", "Treeplatform"]]
 position = Vector2(-2829, -10588)
 scale = Vector2(3, 3)
 
@@ -2044,7 +2044,7 @@ position = Vector2(5, -3)
 polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
 [node name="limit" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-10684, -2017)
+position = Vector2(-10677, -2017)
 script = ExtResource("9_mm5ub")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limit"]
@@ -2059,26 +2059,51 @@ script = ExtResource("9_mm5ub")
 position = Vector2(8728, -6522)
 shape = SubResource("RectangleShape2D_f3b8v")
 
-[node name="UI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="UI"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 2
+offset_left = 866.0
+offset_top = -65.0
+offset_right = 1116.0
+offset_bottom = 185.0
+mouse_filter = 2
+texture = ExtResource("11_duke1")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -283.0
-offset_bottom = 88.0
+offset_left = -252.0
+offset_bottom = 127.0
 grow_horizontal = 0
-theme_override_fonts/font = SubResource("SystemFont_o4p7g")
+theme_override_fonts/font = ExtResource("11_13syv")
+theme_override_font_sizes/font_size = 105
+text = "0/20"
 horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Treelevel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("11_13syv")
+theme_override_font_sizes/font_size = 111
+text = "level: 3"
 
 [editable path="EnemyGroups/LeftSide/EnemyGroup"]
 [editable path="EnemyGroups/LeftSide/EnemyGroup2"]
