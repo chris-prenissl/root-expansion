@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=55 format=3 uid="uid://cljl2pwvr85cy"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -140,17 +140,26 @@ size = Vector2(20, 203)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw1ff"]
 size = Vector2(20, 203)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bqme"]
-size = Vector2(20, 203)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu3se"]
+size = Vector2(204.957, 29856.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je8ct"]
 size = Vector2(20, 50.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrgi5"]
+size = Vector2(10132.8, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpshl"]
+size = Vector2(824.019, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i88af"]
+size = Vector2(352.988, 20)
 
 [node name="MainLevel" type="Node2D"]
 position = Vector2(2137, 386)
 
 [node name="BackgroundTree" type="Sprite2D" parent="."]
-position = Vector2(-2213, 5949)
+position = Vector2(-2415, 5745)
 scale = Vector2(35.9391, 36.0561)
 texture = ExtResource("1_2lm4c")
 
@@ -730,9 +739,9 @@ rotation = 0.783653
 shape = SubResource("RectangleShape2D_bw1ff")
 
 [node name="CollisionShape2D66" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
-position = Vector2(-11471, -2730)
-rotation = 0.0401426
-shape = SubResource("RectangleShape2D_5bqme")
+position = Vector2(-11728, 12093)
+rotation = 0.0244346
+shape = SubResource("RectangleShape2D_mu3se")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
 position = Vector2(-5532, -6930)
@@ -833,6 +842,32 @@ shape = SubResource("RectangleShape2D_bybd2")
 position = Vector2(-7768.96, -3948.72)
 rotation = 0.644027
 shape = SubResource("RectangleShape2D_je8ct")
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
+position = Vector2(-8661, 30663)
+rotation = 0.804597
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xrgi5")
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
+position = Vector2(-6416.39, 32190.4)
+rotation = 1.04196
+shape = SubResource("RectangleShape2D_mpshl")
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
+position = Vector2(-6009, 32884)
+rotation = 1.04022
+shape = SubResource("RectangleShape2D_mpshl")
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
+position = Vector2(-5593, 33594)
+rotation = 1.04022
+shape = SubResource("RectangleShape2D_mpshl")
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="StaticBodies/LeftRoots/StaticBody2D"]
+position = Vector2(-5295.18, 34101.9)
+rotation = 1.04022
+shape = SubResource("RectangleShape2D_i88af")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="StaticBodies/LeftRoots" groups=["Floor"]]
 position = Vector2(-1358, -2070)
