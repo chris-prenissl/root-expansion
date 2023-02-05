@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://gaqrd53bwn2l"]
+
+[ext_resource type="Script" path="res://Scripts/DayNight.gd" id="1_47sb4"]
+[ext_resource type="Texture2D" uid="uid://o7ldigu1x1i" path="res://Art/GlobalGameJam_bar_spritesheet.png" id="2_w6ltp"]
+
+[node name="DayNight" type="Control" node_paths=PackedStringArray("foreground", "button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47sb4")
+foreground = NodePath("Foreground")
+button = NodePath("")
+
+[node name="Background" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -446.0
+offset_right = 438.07
+offset_bottom = 103.0
+grow_horizontal = 2
+texture = ExtResource("2_w6ltp")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Foreground" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -453.0
+offset_top = -105.0
+offset_right = 439.0
+offset_bottom = 109.0
+grow_horizontal = 2
+texture = ExtResource("2_w6ltp")
+expand_mode = 1
+stretch_mode = 2
