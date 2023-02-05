@@ -15,7 +15,7 @@ var last_global_click_mouse_position
 var dir
 var start_acceleration = 300
 var acceleration = start_acceleration
-var acc_exponential = 200
+var acc_exponential = 100
 
 var start_deceleration = 500
 var deceleration = start_deceleration
