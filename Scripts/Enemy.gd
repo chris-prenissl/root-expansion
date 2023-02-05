@@ -40,15 +40,15 @@ func _process(delta):
 		current_state_index += 1
 		if current_state_index >= pattern.size():
 			current_state_index = 0
-		change_state_visually()
+		if pattern[current_state_index] == STATE.vulnerable:
+			change_state_visually("vulnerable")
+		elif pattern[current_state_index] == STATE.aggressive:
+			change_state_visually("aggressive")
 		current_timer = pattern_timers[current_state_index]
 		current_state = pattern[current_state_index]
 
-func change_state_visually():
-	if current_state == STATE.vulnerable:
-		sprite.animation = "aggressive"
-	elif current_state == STATE.aggressive:
-		sprite.animation = "vulnerable"
+func change_state_visually(statetochangeto):
+	sprite.animation = statetochangeto
 	sprite.play()
 
 func on_body_entered(body):
@@ -56,7 +56,7 @@ func on_body_entered(body):
 		return
 	if body.is_in_group("Player"):
 		if current_state == STATE.vulnerable:
-			body.GRAVITY = 3000
+			body.GRAVITY = 2000
 			body.refill_dashes()
 			hit_by_player.emit(number_in_group, body)
 		elif current_state == STATE.aggressive:
@@ -68,7 +68,6 @@ func on_body_exited(body):
 
 
 func respawn():
-	print("hi")
 	get_child(3).current_animation = "Respawn2"
 	get_child(3).play()
 	active = true

@@ -10,7 +10,7 @@ var defeated = false
 
 var dropped_loot = false
 
-var start_combo_timer = 1 
+var start_combo_timer = 2
 var combo_timer = start_combo_timer
 var combo_timer_running = false
 
@@ -80,6 +80,7 @@ func group_defeated():
 		dropped_loot = true
 		var new_energy = load(energy_scene_path).instantiate()		
 		owner.call_deferred("add_child", new_energy)
+		print("hi")
 		new_energy.position = enemies[enemies.size() - 1].position
 	for e in enemies:
 		e.get_child(3).current_animation = "Respawn"

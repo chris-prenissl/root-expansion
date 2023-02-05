@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var GRAVITY = 4000
+var GRAVITY = 2000
 
 var start_health = 1 
 var current_health = start_health
@@ -13,9 +13,9 @@ var last_click_mouse_position
 var last_global_click_mouse_position
 
 var dir
-var start_acceleration = 300
+var start_acceleration = 500
 var acceleration = start_acceleration
-var acc_exponential = 100
+var acc_exponential = 5
 
 var start_deceleration = 500
 var deceleration = start_deceleration
@@ -130,7 +130,7 @@ func stop_dashing():
 	decelerating = true
 	dashing = false
 	
-	GRAVITY = 3000
+	GRAVITY = 2000
 	velocity = Vector2.ZERO
 
 func take_damage():
@@ -142,4 +142,6 @@ func game_over():
 	print("game over!")
 	
 func add_energy():
+	print("heello")
 	amount_of_energy += 1
+	print(amount_of_energy)

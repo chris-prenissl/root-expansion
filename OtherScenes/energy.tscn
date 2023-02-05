@@ -1,7 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://kgcv2ibs171h"]
+[gd_scene load_steps=8 format=3 uid="uid://kgcv2ibs171h"]
 
 [ext_resource type="Script" path="res://Scripts/energy.gd" id="1_rhbqw"]
-[ext_resource type="Texture2D" uid="uid://cins3lssnji3l" path="res://Art/PrototypeArt/128square.png" id="1_wwcxq"]
+[ext_resource type="Texture2D" uid="uid://6h0pf7ptai44" path="res://Art/spritesheet.png" id="2_sy565"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt86c"]
+atlas = ExtResource("2_sy565")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e0it"]
+atlas = ExtResource("2_sy565")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jag1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt86c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e0it")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dubu"]
 size = Vector2(10, 14)
@@ -12,10 +34,9 @@ radius = 9.0
 [node name="Energy" type="CharacterBody2D"]
 script = ExtResource("1_rhbqw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.623529, 1, 0.733333, 1)
-scale = Vector2(0.078125, 0.109375)
-texture = ExtResource("1_wwcxq")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jag1s")
+frame_progress = 0.513726
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1dubu")
