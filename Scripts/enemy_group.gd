@@ -1,6 +1,6 @@
 extends Node2D
 
-var enemies
+var enemies : Array[Node]
 var player
 
 var last_number_hit = -1
@@ -81,10 +81,10 @@ func stop_combo(player):
 func group_defeated():
 	if dropped_loot == false:
 		dropped_loot = true
-		var new_energy = load(energy_scene_path).instantiate()		
+		var new_energy = load(energy_scene_path).instantiate()
+		new_energy.set_player(player)
 		owner.call_deferred("add_child", new_energy)
-		print("hi")
-		new_energy.position = enemies[enemies.size() - 1].position
+		new_energy.position = enemies[enemies.size() - 1].global_position
 	for e in enemies:
 		e.get_child(3).current_animation = "Respawn"
 		e.get_child(3).play()

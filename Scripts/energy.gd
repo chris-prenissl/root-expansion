@@ -7,8 +7,10 @@ var current_speed: float
 var player: Node2D
 
 func _ready():
-	player = owner.get_node("Player")
 	current_speed = starting_speed
+	
+func set_player(_player: Node2D):
+	player = _player
 	
 func _process(delta):
 	move_towards_player(delta)
