@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=68 format=3 uid="uid://cljl2pwvr85cy"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -182,6 +182,9 @@ size = Vector2(3535.7, 193)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn5dq"]
 size = Vector2(2207.65, 193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85es5"]
+size = Vector2(3140.07, 116.454)
 
 [node name="MainLevel" type="Node2D"]
 position = Vector2(2137, 386)
@@ -994,7 +997,12 @@ texture_repeat = 2
 texture = ExtResource("3_5rjep")
 texture_scale = Vector2(0.5, 0.5)
 texture_rotation = 1.5708
-polygon = PackedVector2Array(-2968, -8239, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 7576, 18378, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 763, -8380)
+polygon = PackedVector2Array(-2968, -8239, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, -2341, 2874, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 3283, 15196, 7576, 18378, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 6947, 13616, 4238, 2752, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 1379, 2337, 4526, -11404, 774, -11691, 763, -8380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodies/MiddleRoots/StaticBody2D"]
+position = Vector2(-2827.26, -6672.99)
+rotation = -1.62316
+shape = SubResource("RectangleShape2D_85es5")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="StaticBodies/MiddleRoots"]
 
@@ -1221,12 +1229,14 @@ pattern_timers = [3.0, 3.0]
 [node name="Treeenenemies" type="Node2D" parent="EnemyGroups"]
 
 [node name="treeenemygroup" type="Node2D" parent="EnemyGroups/Treeenenemies"]
+position = Vector2(-2, 0)
 script = ExtResource("7_ygorh")
+energy_scene_path = "res://OtherScenes/energy.tscn"
 
 [node name="Enemies" type="Node2D" parent="EnemyGroups/Treeenenemies/treeenemygroup"]
 
 [node name="Enemy" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
-position = Vector2(-8528, -8317)
+position = Vector2(-8528, -8316)
 pattern = [0]
 pattern_timers = [1.0]
 
@@ -1286,12 +1296,17 @@ pattern = [0]
 pattern_timers = [1.0]
 
 [node name="Enemy13" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
-position = Vector2(-6780, -9627)
+position = Vector2(-6780, -9625)
 pattern = [0]
 pattern_timers = [1.0]
 
 [node name="Enemy14" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
-position = Vector2(-6456, -9655)
+position = Vector2(-6583, -9641)
+pattern = [0]
+pattern_timers = [1.0]
+
+[node name="Enemy33" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6369, -9656)
 pattern = [0]
 pattern_timers = [1.0]
 
@@ -1311,7 +1326,12 @@ pattern = [0]
 pattern_timers = [1.0]
 
 [node name="Enemy18" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
-position = Vector2(-5537, -9973)
+position = Vector2(-5601, -9948)
+pattern = [0]
+pattern_timers = [1.0]
+
+[node name="Enemy34" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5507, -10077)
 pattern = [0]
 pattern_timers = [1.0]
 
@@ -1387,12 +1407,207 @@ pattern_timers = [1.0]
 
 [node name="Line2D" type="Line2D" parent="EnemyGroups/Treeenenemies/treeenemygroup"]
 
+[node name="Floorenemies" type="Node2D" parent="EnemyGroups"]
+
+[node name="Enemy" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-9231, -5580)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy2" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-9029, -5494)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy3" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-8749, -5407)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy4" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-8532, -5329)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy5" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-8366, -5286)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy6" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-8172, -5238)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy7" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-7912, -5185)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy8" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-7668, -5130)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy9" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-7408, -5085)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy10" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-7186, -5060)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy11" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6929, -5027)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy12" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6705, -4994)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy13" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6705, -4994)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy14" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6483, -4981)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy15" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-6191, -4964)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy16" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5932, -4947)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy17" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5690, -4941)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy18" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5474, -4992)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy19" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5254, -4964)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy20" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-5084, -4972)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy21" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-4853, -4972)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy22" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-4637, -4972)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy23" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-4637, -4972)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy24" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-4523, -8256)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy25" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-4231, -8246)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy26" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-3921, -8266)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy27" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-3675, -8270)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy28" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-3461, -8286)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy29" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-3187, -8288)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy30" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-2937, -8314)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy31" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-2679, -8306)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy32" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-2415, -8320)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy33" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-2223, -8350)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy34" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-2033, -8348)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy35" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-1772, -8361)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy36" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-1493, -8374)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy37" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-1236, -8374)
+pattern = [1]
+pattern_timers = [1.0]
+
+[node name="Enemy38" parent="EnemyGroups/Floorenemies" instance=ExtResource("8_j14jn")]
+position = Vector2(-962, -8391)
+pattern = [1]
+pattern_timers = [1.0]
+
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="LeftSide" type="Node2D" parent="Platforms"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-6734, -7629)
+
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D"]
+position = Vector2(-34, -266)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D"]
 texture_repeat = 2
@@ -1408,6 +1623,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 [node name="StaticBody2D2" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-6655, -7063)
 
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D2"]
+position = Vector2(-38, -280)
+
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D2"]
 texture_repeat = 2
 position = Vector2(6667, 5395)
@@ -1421,6 +1639,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-5101, -7002)
+
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D3"]
+position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D3"]
 texture_repeat = 2
@@ -1436,6 +1657,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 [node name="StaticBody2D4" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-6160, -7307)
 
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D4"]
+position = Vector2(-38, -280)
+
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D4"]
 texture_repeat = 2
 position = Vector2(6667, 5395)
@@ -1449,6 +1673,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-4924, -6233)
+
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D5"]
+position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D5"]
 texture_repeat = 2
@@ -1464,6 +1691,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 [node name="StaticBody2D6" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-6465, -6110)
 
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D6"]
+position = Vector2(-38, -280)
+
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D6"]
 texture_repeat = 2
 position = Vector2(6667, 5395)
@@ -1477,6 +1707,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-7045, -6448)
+
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D7"]
+position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D7"]
 texture_repeat = 2
@@ -1492,6 +1725,9 @@ polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 [node name="StaticBody2D8" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
 position = Vector2(-2829, -10588)
 scale = Vector2(3, 3)
+
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D8"]
+position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D8"]
 texture_repeat = 2

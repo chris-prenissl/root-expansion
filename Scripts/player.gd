@@ -70,7 +70,8 @@ func on_floor_detector_entered(body):
 		refill_dashes()
 		grounded = true
 		if body.is_in_group("Checkpoint"):
-			last_checkpoint = position
+			print(body.get_child(0).position)
+			last_checkpoint = body.get_child(0).position
 
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
