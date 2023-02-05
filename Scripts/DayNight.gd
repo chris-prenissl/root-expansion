@@ -1,8 +1,7 @@
 extends Control
 
-@export var time_speed = 0.04
+@export var time_speed = 0.03
 @export var foreground: TextureRect
-@export var button: Button
 
 @onready var bar_length = foreground.size.x 
 
@@ -10,10 +9,8 @@ var day_value: float
 
 func _ready():
 	day_value = 1
-	button.button_down.connect(reset_day_value)
 	
 func _process(delta):
-	print(day_value)
 	day_value -= time_speed*delta
 	
 	if day_value <= 0:

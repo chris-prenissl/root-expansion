@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=75 format=3 uid="uid://dreql13pgf1m7"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://Scripts/limit.gd" id="9_mm5ub"]
 [ext_resource type="FontFile" uid="uid://c4lswrdc2715c" path="res://Fonts/CabinSketch-Bold.ttf" id="11_13syv"]
 [ext_resource type="Texture2D" uid="uid://cbbbj4nhgu18w" path="res://Art/GlobalGameJam_-_energy_1.png" id="11_duke1"]
+[ext_resource type="PackedScene" path="res://OtherScenes/DayNight.tscn" id="13_8l8of"]
+[ext_resource type="AudioStream" uid="uid://bhbl60hki8oo0" path="res://Audio/globalgamejam2023music.wav" id="14_gbrit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y83s"]
 size = Vector2(1357.25, 35.1221)
@@ -203,7 +205,7 @@ scale = Vector2(35.9391, 36.0561)
 texture = ExtResource("1_2lm4c")
 
 [node name="Player" parent="." instance=ExtResource("1_5p8ow")]
-position = Vector2(-9056, -8861)
+position = Vector2(-7905, -8748)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-8545, -4043)
@@ -1347,6 +1349,10 @@ position = Vector2(-2, 0)
 script = ExtResource("7_ygorh")
 energy_scene_path = "res://OtherScenes/energy.tscn"
 
+[node name="Line2D" type="Line2D" parent="EnemyGroups/Treeenenemies/treeenemygroup"]
+width = 3.0
+default_color = Color(0.4, 0.647059, 0.443137, 1)
+
 [node name="Enemies" type="Node2D" parent="EnemyGroups/Treeenenemies/treeenemygroup"]
 
 [node name="Enemy" parent="EnemyGroups/Treeenenemies/treeenemygroup/Enemies" instance=ExtResource("8_j14jn")]
@@ -1528,8 +1534,6 @@ pattern_timers = [1.0]
 position = Vector2(-3383, -11341)
 pattern = [0]
 pattern_timers = [1.0]
-
-[node name="Line2D" type="Line2D" parent="EnemyGroups/Treeenenemies/treeenemygroup"]
 
 [node name="Floorenemies" type="Node2D" parent="EnemyGroups"]
 
@@ -2072,10 +2076,10 @@ mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
 layout_mode = 2
-offset_left = 866.0
-offset_top = -65.0
-offset_right = 1116.0
-offset_bottom = 185.0
+offset_left = 1012.0
+offset_top = -62.0
+offset_right = 1212.0
+offset_bottom = 138.0
 mouse_filter = 2
 texture = ExtResource("11_duke1")
 
@@ -2088,7 +2092,7 @@ offset_left = -252.0
 offset_bottom = 127.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("11_13syv")
-theme_override_font_sizes/font_size = 105
+theme_override_font_sizes/font_size = 59
 text = "0/20"
 horizontal_alignment = 2
 
@@ -2099,11 +2103,20 @@ offset_bottom = 40.0
 
 [node name="Treelevel" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -3.0
+offset_top = 92.0
+offset_right = 337.0
+offset_bottom = 226.0
 theme_override_fonts/font = ExtResource("11_13syv")
 theme_override_font_sizes/font_size = 111
 text = "level: 3"
+
+[node name="DayNight" parent="CanvasLayer" instance=ExtResource("13_8l8of")]
+mouse_filter = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_gbrit")
+autoplay = true
 
 [editable path="EnemyGroups/LeftSide/EnemyGroup"]
 [editable path="EnemyGroups/LeftSide/EnemyGroup2"]
