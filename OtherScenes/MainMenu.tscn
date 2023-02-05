@@ -1,7 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbpht0c7hdvn5"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ftiit"]
 [ext_resource type="Texture2D" uid="uid://dn5chmuc4igr8" path="res://Art/GlobalGameJam_Game_Illust.png" id="1_nhprx"]
+
+[sub_resource type="GDScript" id="GDScript_2prqs"]
+script/source = "extends Control
+
+@export var start_button: Button
+
+func _ready():
+	start_button.button_down.connect(start_game)
+
+func start_game():
+	get_tree().change_scene_to_file(\"res://MainScenes/MainLevel.tscn\")
+"
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("start_button")]
 layout_mode = 3
@@ -10,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ftiit")
+script = SubResource("GDScript_2prqs")
 start_button = NodePath("Button")
 
 [node name="TextureRect" type="TextureRect" parent="."]

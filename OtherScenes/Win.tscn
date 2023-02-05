@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6ab7f4ng3uji"]
+
+[ext_resource type="Script" path="res://Scripts/AfterGame.gd" id="1_7y3bf"]
+[ext_resource type="PackedScene" uid="uid://cbpht0c7hdvn5" path="res://OtherScenes/MainMenu.tscn" id="2_ddv1a"]
+[ext_resource type="Texture2D" uid="uid://ct86ixhm021l5" path="res://Art/GlobalGameJam bg stage 3 night.png" id="2_l1qxu"]
+
+[sub_resource type="Gradient" id="Gradient_auy8s"]
+colors = PackedColorArray(0, 0, 0, 1, 0.08, 0.08, 0.08, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cyfnt"]
+gradient = SubResource("Gradient_auy8s")
+
+[node name="Win" type="Control" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7y3bf")
+button = NodePath("Button")
+button_text = "Back to Main Menu"
+scene = ExtResource("2_ddv1a")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -77.0
+offset_top = -28.0
+offset_right = 1352.0
+offset_bottom = 741.0
+texture = SubResource("GradientTexture2D_cyfnt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -360.0
+offset_right = 708.0
+offset_bottom = 811.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l1qxu")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 531.0
+offset_right = 780.0
+offset_bottom = 617.0
+text = "Start"

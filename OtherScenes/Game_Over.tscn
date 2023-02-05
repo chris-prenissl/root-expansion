@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg6sc6xlvjypg"]
+
+[ext_resource type="Script" path="res://Scripts/AfterGame.gd" id="1_r0nfx"]
+[ext_resource type="PackedScene" uid="uid://cbpht0c7hdvn5" path="res://OtherScenes/MainMenu.tscn" id="2_y0evc"]
+[ext_resource type="Texture2D" uid="uid://twqu1q70ri8u" path="res://Art/GlobalGameJam.png" id="3_xl1so"]
+
+[node name="GameOver" type="Control" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0nfx")
+button = NodePath("Button")
+button_text = "Back to Main Menu"
+scene = ExtResource("2_y0evc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -658.0
+offset_top = -385.0
+offset_right = 731.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xl1so")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 359.0
+offset_right = 814.0
+offset_bottom = 445.0
+text = "Start"
