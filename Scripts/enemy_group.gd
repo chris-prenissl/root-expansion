@@ -20,9 +20,12 @@ var respawn_timer_running = false
 
 var line2d 
 
+var level
+
 @export var energy_scene_path = ""
 
 func _ready():
+	level = owner
 	line2d = get_node("Line2D")
 	player = owner.get_node("Player")
 	enemies = get_node("Enemies").get_children()
@@ -81,6 +84,7 @@ func stop_combo(player):
 func group_defeated():
 	if dropped_loot == false:
 		dropped_loot = true
+		level.looted_enemy_groups.append(self)
 		var new_energy = load(energy_scene_path).instantiate()
 		new_energy.set_player(player)
 		owner.call_deferred("add_child", new_energy)

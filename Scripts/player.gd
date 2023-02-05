@@ -8,6 +8,7 @@ var start_pos
 
 var max_dash_distance = 45
 var min_click_distance_from_player = 100
+var max_click_distance_from_player = 500
 var last_click_mouse_position
 var last_global_click_mouse_position
 
@@ -71,8 +72,7 @@ func on_floor_detector_entered(body):
 		grounded = true
 		if body.is_in_group("Checkpoint"):
 			print(body.get_child(0).position)
-			last_checkpoint = body.get_child(0).position
-
+			last_checkpoint = body.get_child(0).global_position
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
 		grounded = false
@@ -84,7 +84,7 @@ func refill_dashes():
 func start_dashing():
 	last_click_mouse_position = get_local_mouse_position()
 	last_global_click_mouse_position = get_global_mouse_position()
-	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player):
+	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player) and last_click_mouse_position.distance_to(Vector2.ZERO) < max_click_distance_from_player:
 		return
 	
 	if last_click_mouse_position.y > 30:
@@ -138,19 +138,19 @@ func stop_dashing():
 
 
 func game_over():
-	print("game over!")
 	velocity = Vector2.ZERO
 	amount_of_energy -= 1
 	if amount_of_energy < 0:
 		amount_of_energy = 0 
+	else:
+		owner.make_group_lootable_again()
 	respawn()
 
 func respawn():
 	if last_checkpoint != Vector2.ZERO:
-		position = last_checkpoint
+		global_position = last_checkpoint
 	else:
 		position = start_pos
 	
 func add_energy():
 	amount_of_energy += 1
-	print(amount_of_energy)

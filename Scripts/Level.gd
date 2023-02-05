@@ -8,8 +8,10 @@ var level_energy_requirements = {1: 1, 2: 3, 3: 5, 4: 7, 5: 10}
 var next_level_energy_requirement
 var next_level_energy_requirement_index = 0
 
+var looted_enemy_groups = []
+
 func _ready():
-	next_level_energy_requirement = level_energy_requirements[next_level_energy_requirement_index]
+	next_level_energy_requirement = level_energy_requirements[1]
 
 func add_energy():
 	if current_energy >= next_level_energy_requirement:
@@ -22,5 +24,8 @@ func add_energy():
 func level_up():
 	total_energy += current_energy
 	level += 1
-	
+
+func make_group_lootable_again():
+	looted_enemy_groups[0].dropped_loot = false
+	looted_enemy_groups.remove_at(0)	
 	
