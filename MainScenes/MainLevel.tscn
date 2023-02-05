@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dreql13pgf1m7"]
+[gd_scene load_steps=75 format=3 uid="uid://cljl2pwvr85cy"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/limit.gd" id="9_mm5ub"]
 [ext_resource type="FontFile" uid="uid://c4lswrdc2715c" path="res://Fonts/CabinSketch-Bold.ttf" id="11_13syv"]
 [ext_resource type="Texture2D" uid="uid://cbbbj4nhgu18w" path="res://Art/GlobalGameJam_-_energy_1.png" id="11_duke1"]
-[ext_resource type="PackedScene" path="res://OtherScenes/DayNight.tscn" id="13_8l8of"]
+[ext_resource type="PackedScene" uid="uid://gaqrd53bwn2l" path="res://OtherScenes/DayNight.tscn" id="13_8l8of"]
 [ext_resource type="AudioStream" uid="uid://bhbl60hki8oo0" path="res://Audio/globalgamejam2023music.wav" id="14_gbrit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y83s"]
@@ -2011,29 +2011,11 @@ polygon = PackedVector2Array(-6917, -5583, -6850, -5500, -6453, -5541, -6496, -5
 position = Vector2(5, -3)
 polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor"]]
-position = Vector2(-2829, -10588)
-scale = Vector2(3, 3)
-
-[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D8"]
-position = Vector2(-38, -280)
-
-[node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D8"]
-texture_repeat = 2
-position = Vector2(6667, 5395)
-texture = ExtResource("3_5rjep")
-texture_scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-6917, -5583, -6850, -5500, -6453, -5541, -6496, -5624)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/LeftSide/StaticBody2D8"]
-position = Vector2(5, -3)
-polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
-
 [node name="StaticBody2D9" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor", "Treeplatform"]]
 position = Vector2(-2829, -10588)
 scale = Vector2(3, 3)
 
-[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D9"]
+[node name="Node2D" type="Node2D" parent="Platforms/LeftSide/StaticBody2D9" groups=["Floor", "Treeplatform"]]
 position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D9"]
