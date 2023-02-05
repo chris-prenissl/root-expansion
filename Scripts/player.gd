@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var sprite: AnimatedSprite2D
+
 var GRAVITY = 2000
 
 var floor_detector
@@ -60,9 +62,9 @@ func _physics_process(delta):
 	if decelerating:
 		decelerate()
 	if dashing:
-		dash()		
+		dash()
 	move_and_slide()
-	if dashing:		
+	if dashing:
 		add_to_travelled_distance()
 		pass
 
@@ -84,7 +86,11 @@ func refill_dashes():
 func start_dashing():
 	last_click_mouse_position = get_local_mouse_position()
 	last_global_click_mouse_position = get_global_mouse_position()
-	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player) and last_click_mouse_position.distance_to(Vector2.ZERO) < max_click_distance_from_player:
+	
+	var view_dir = position.direction_to(last_global_click_mouse_position)
+	animate_sprite(view_dir.x > 0, view_dir.y < 0, true, false, false)
+	
+	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player):
 		return
 	
 	if last_click_mouse_position.y > 30:
@@ -154,3 +160,24 @@ func respawn():
 	
 func add_energy():
 	amount_of_energy += 1
+	print(amount_of_energy)
+
+func animate_sprite(facing_right: bool, moving_up: bool, dashing: bool, idle: bool, falling: bool):
+	sprite.flip_h = facing_right
+	
+	if dashing:
+		const animation = "dash_"
+		if moving_up:
+			sprite.animation = animation + "up"
+		elif falling:
+			sprite.animation = animation + "down"
+		else:
+			sprite.animation = animation + "horizontal"
+	elif idle:
+		sprite.animation = "idle"
+	elif falling:
+		sprite.animation = "falling"
+	else:
+		sprite.animation = "landing"
+	
+	sprite.play()
