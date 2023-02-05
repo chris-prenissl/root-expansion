@@ -56,11 +56,9 @@ func on_body_entered(body):
 		return
 	if body.is_in_group("Player"):
 		if current_state == STATE.vulnerable:
-			body.GRAVITY = 2000
-			body.refill_dashes()
 			hit_by_player.emit(number_in_group, body)
 		elif current_state == STATE.aggressive:
-			body.take_damage()
+			body.game_over()
 
 func on_body_exited(body):
 	if body.is_in_group("Player"):

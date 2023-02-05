@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://coox6u7tjc0r7"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_group.gd" id="1_8wnqp"]
+[ext_resource type="PackedScene" uid="uid://d3if6q3n7o0kq" path="res://OtherScenes/Enemy.tscn" id="2_pssbb"]
+
+[node name="EnemyGroup" type="Node2D"]
+script = ExtResource("1_8wnqp")
+energy_scene_path = "res://OtherScenes/energy.tscn"
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("2_pssbb")]
+position = Vector2(-3, 239)
+pattern_timers = [1.0, 1.0]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("2_pssbb")]
+position = Vector2(198, 89)
+pattern_timers = [1.0, 1.0]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_pssbb")]
+pattern_timers = [1.0, 1.0]
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("2_pssbb")]
+position = Vector2(196, -17)
+pattern_timers = [1.0, 1.0]
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("2_pssbb")]
+position = Vector2(372, 61)
+pattern_timers = [1.0, 1.0]
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0.4, 0.647059, 0.443137, 1)

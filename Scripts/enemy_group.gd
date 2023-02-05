@@ -34,6 +34,9 @@ func _ready():
 
 func on_enemy_hit(number_in_group, player):		
 	if number_in_group == last_number_hit + 1:
+		player.GRAVITY = 2000
+		player.refill_dashes()
+		combo_timer = start_combo_timer
 		combo_timer_running = true
 		enemies[number_in_group].visible = false
 		enemies[number_in_group].active = false

@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 var GRAVITY = 2000
 
-var start_health = 1 
-var current_health = start_health
-
 var floor_detector
+var last_checkpoint = Vector2.ZERO
+var start_pos
 
 var max_dash_distance = 45
 var min_click_distance_from_player = 100
@@ -40,6 +39,7 @@ var travelled_distance = 0
 var dashing = false
 
 func _ready():
+	start_pos = position
 	floor_detector = $FloorDetector
 	floor_detector.connect("body_entered", on_floor_detector_entered)
 	floor_detector.connect("body_exited", on_floor_detector_exited)
@@ -69,6 +69,8 @@ func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
 		refill_dashes()
 		grounded = true
+		if body.is_in_group("Checkpoint"):
+			last_checkpoint = position
 
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
@@ -133,15 +135,21 @@ func stop_dashing():
 	GRAVITY = 2000
 	velocity = Vector2.ZERO
 
-func take_damage():
-	current_health -= 1 
-	if current_health <= 0:
-		game_over()
 
 func game_over():
 	print("game over!")
+	velocity = Vector2.ZERO
+	amount_of_energy -= 1
+	if amount_of_energy < 0:
+		amount_of_energy = 0 
+	respawn()
+
+func respawn():
+	if last_checkpoint != Vector2.ZERO:
+		position = last_checkpoint
+	else:
+		position = start_pos
 	
 func add_energy():
-	print("heello")
 	amount_of_energy += 1
 	print(amount_of_energy)
