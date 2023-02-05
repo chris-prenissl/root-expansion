@@ -11,8 +11,8 @@ var start_pos
 var max_dash_distance = 45
 var min_click_distance_from_player = 100
 var max_click_distance_from_player = 500
-var last_click_mouse_position
-var last_global_click_mouse_position
+@onready var last_click_mouse_position = Vector2.ZERO
+@onready var last_global_click_mouse_position = Vector2.ZERO
 
 var dir
 var start_acceleration = 500
@@ -28,7 +28,7 @@ var max_speed = 3000
 
 var decelerating = false
 
-var last_position
+var last_position: Vector2
 
 var grounded = false
 
@@ -80,9 +80,11 @@ func _physics_process(delta):
 	if dashing:
 		add_to_travelled_distance()
 		pass
+	animate_sprite()
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
+		
 		refill_dashes()
 		grounded = true
 		if body.is_in_group("Checkpoint"):
@@ -103,9 +105,6 @@ func refill_dashes():
 func start_dashing():
 	last_click_mouse_position = get_local_mouse_position()
 	last_global_click_mouse_position = get_global_mouse_position()
-	
-	var view_dir = position.direction_to(last_global_click_mouse_position)
-	animate_sprite(view_dir.x > 0, view_dir.y < 0, true, false, false)
 	
 	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player):
 		return
@@ -182,8 +181,17 @@ func add_energy():
 	print(amount_of_energy)
 	show_energy_text()
 
-func animate_sprite(facing_right: bool, moving_up: bool, dashing: bool, idle: bool, falling: bool):
-	sprite.flip_h = facing_right
+func animate_sprite():
+	if sprite.is_playing():
+		return
+	
+	var view_dir = get_local_mouse_position().normalized()
+	var moving_up = !grounded && position.y < last_position.y
+	var falling = !grounded && position.y > last_position.y
+	var idle = grounded
+	var is_facing_right = view_dir.x > 0
+	sprite.flip_h = is_facing_right
+	
 	
 	if dashing:
 		const animation = "dash_"
