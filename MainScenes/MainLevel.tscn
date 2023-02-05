@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cljl2pwvr85cy"]
+[gd_scene load_steps=75 format=3 uid="uid://dreql13pgf1m7"]
 
 [ext_resource type="Texture2D" uid="uid://cyyjgkacytys6" path="res://Art/Treebackgrounds/GlobalGameJam_bg_day.png" id="1_2lm4c"]
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/limit.gd" id="9_mm5ub"]
 [ext_resource type="FontFile" uid="uid://c4lswrdc2715c" path="res://Fonts/CabinSketch-Bold.ttf" id="11_13syv"]
 [ext_resource type="Texture2D" uid="uid://cbbbj4nhgu18w" path="res://Art/GlobalGameJam_-_energy_1.png" id="11_duke1"]
-[ext_resource type="PackedScene" uid="uid://gaqrd53bwn2l" path="res://OtherScenes/DayNight.tscn" id="13_8l8of"]
+[ext_resource type="PackedScene" path="res://OtherScenes/DayNight.tscn" id="13_8l8of"]
 [ext_resource type="AudioStream" uid="uid://bhbl60hki8oo0" path="res://Audio/globalgamejam2023music.wav" id="14_gbrit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y83s"]

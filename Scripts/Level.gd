@@ -69,4 +69,4 @@ func _process(delta):
 
 func end_of_the_game():
 	print("total game over")
-	#show game over screen
+	get_tree().change_scene

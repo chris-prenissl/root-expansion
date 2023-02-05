@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Root-expansion"
-run/main_scene="res://MainScenes/MainLevel.tscn"
+run/main_scene="res://OtherScenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Art/icon.svg"
 
