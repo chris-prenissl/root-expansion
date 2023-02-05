@@ -40,7 +40,7 @@ func level_up():
 	level += 1
 
 func make_group_lootable_again():
-	if looted_enemy_groups.size() >= 0:
+	if looted_enemy_groups.size() > 0:
 		looted_enemy_groups[0].dropped_loot = false
 		looted_enemy_groups.remove_at(0)	
 
