@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://capwg17vc578p"]
+[gd_scene load_steps=46 format=3 uid="uid://cljl2pwvr85cy"]
 
 [ext_resource type="PackedScene" uid="uid://d3q0kqjxgi5ew" path="res://OtherScenes/player.tscn" id="1_5p8ow"]
 [ext_resource type="Texture2D" uid="uid://twqu1q70ri8u" path="res://Art/GlobalGameJam.png" id="1_np0pt"]
@@ -132,7 +132,7 @@ size = Vector2(781.5, 94)
 position = Vector2(2137, 386)
 
 [node name="BackgroundTree" type="Sprite2D" parent="."]
-position = Vector2(-1110, 501)
+position = Vector2(-1326, 253)
 scale = Vector2(20, 21.884)
 texture = ExtResource("1_np0pt")
 

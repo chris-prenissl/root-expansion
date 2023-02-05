@@ -13,10 +13,11 @@ size = Vector2(1158, 128)
 script = ExtResource("1_lgy0q")
 
 [node name="Player" parent="." instance=ExtResource("2_0rlgs")]
-position = Vector2(762, 241)
+position = Vector2(476, 6)
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["Floor"]]
 position = Vector2(547, 659)
+rotation = -0.0331613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" groups=["Floor"]]
 position = Vector2(32, 5)

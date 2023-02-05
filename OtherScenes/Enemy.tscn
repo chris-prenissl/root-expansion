@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3if6q3n7o0kq"]
+[gd_scene load_steps=14 format=3 uid="uid://d3if6q3n7o0kq"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ovp4v"]
 [ext_resource type="Texture2D" uid="uid://c6fhnf7edwj1s" path="res://Art/GlobalGameJam_-_battery_spritesheet.png" id="2_p3j5s"]
+[ext_resource type="Texture2D" uid="uid://cbv5n23ebc2x6" path="res://Art/PrototypeArt/light.png" id="3_cfwom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dbs1"]
 radius = 36.0139
@@ -47,14 +48,102 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_qkb7j"]
+resource_name = "Respawn"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_s3f5e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.627451, 0.8, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5jvet"]
+resource_name = "Respawn2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydurw"]
+_data = {
+"RESET": SubResource("Animation_s3f5e"),
+"Respawn": SubResource("Animation_qkb7j"),
+"Respawn2": SubResource("Animation_5jvet")
+}
+
 [node name="Enemy" type="Area2D"]
+modulate = Color(1, 0.627451, 0.8, 1)
 script = ExtResource("1_ovp4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5dbs1")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.345098, 0.984314, 1, 1)
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ael2r")
 animation = &"vulnerable"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_cfwom")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ydurw")
+}

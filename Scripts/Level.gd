@@ -9,7 +9,8 @@ var next_level_energy_requirement
 var next_level_energy_requirement_index = 0
 
 func _ready():
-	next_level_energy_requirement = level_energy_requirements[next_level_energy_requirement_index]
+	pass
+	#next_level_energy_requirement = level_energy_requirements[next_level_energy_requirement_index]
 
 func add_energy():
 	current_energy += 1

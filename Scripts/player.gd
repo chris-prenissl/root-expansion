@@ -81,8 +81,12 @@ func refill_dashes():
 func start_dashing():
 	last_click_mouse_position = get_local_mouse_position()
 	last_global_click_mouse_position = get_global_mouse_position()
-	if!(position.distance_to(last_global_click_mouse_position) > min_click_distance_from_player):
+	if!(last_click_mouse_position.distance_to(Vector2.ZERO) > min_click_distance_from_player):
 		return
+	
+	if last_click_mouse_position.y > 30:
+		if is_on_floor():
+			return
 		
 	amount_of_dashes -= 1
 	travelled_distance = 0

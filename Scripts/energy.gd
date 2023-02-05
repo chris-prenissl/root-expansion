@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var player 
-var speed = 300
+var speed = 600
 var area 
 
 func _ready():

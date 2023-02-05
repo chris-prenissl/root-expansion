@@ -7,6 +7,7 @@ var last_number_hit = -1
 
 var defeated = false
 
+
 var dropped_loot = false
 
 var start_combo_timer = 1 
@@ -17,15 +18,19 @@ var start_respawn_timer = 5
 var respawn_timer = start_respawn_timer
 var respawn_timer_running = false
 
+var line2d 
+
 @export var energy_scene_path = ""
 
 func _ready():
+	line2d = get_node("Line2D")
 	player = owner.get_node("Player")
-	enemies = get_children()
+	enemies = get_node("Enemies").get_children()
 	for e in enemies:
 		e.number_in_group = enemies.find(e)
 		e.connect("hit_by_player", on_enemy_hit)
 		show_enemy_to_hit_visually()
+	generate_line2D()
 
 func on_enemy_hit(number_in_group, player):		
 	if number_in_group == last_number_hit + 1:
@@ -33,12 +38,15 @@ func on_enemy_hit(number_in_group, player):
 		enemies[number_in_group].visible = false
 		enemies[number_in_group].active = false
 		last_number_hit += 1
+		if last_number_hit < line2d.get_point_count():
+			line2d.remove_point(last_number_hit)
+		if number_in_group == enemies.size() - 1:
+			group_defeated()
 		show_enemy_to_hit_visually()
 	else:
 		stop_combo(player)
 		
-	if number_in_group == enemies.size() - 1:
-		group_defeated()
+	
 
 func show_enemy_to_hit_visually():
 	for e in enemies:
@@ -49,13 +57,17 @@ func show_enemy_to_hit_visually():
 
 func dehighlight_enemy(enemy):
 	enemy.get_child(1).scale = Vector2(0.5, 0.5)
-
+	enemy.get_child(0).scale = Vector2(0.5, 0.5)
+	enemy.get_child(2).energy = 0
+	
 func highlight_enemy(enemy):
-	enemy.get_child(1).scale = Vector2(0.7, 0.7)
-		
+	enemy.get_child(1).scale = Vector2(1, 1)
+	enemy.get_child(0).scale = Vector2(1, 1)
+	enemy.get_child(2).energy = 0.5
 func stop_combo(player):
 	if defeated:
 		return
+	generate_line2D()
 	last_number_hit = -1
 	show_enemy_to_hit_visually()
 	player.GRAVITY = 3000
@@ -69,11 +81,14 @@ func group_defeated():
 		var new_energy = load(energy_scene_path).instantiate()		
 		owner.call_deferred("add_child", new_energy)
 		new_energy.position = enemies[enemies.size() - 1].position
-		
+	for e in enemies:
+		e.get_child(3).current_animation = "Respawn"
+		e.get_child(3).play()
+		e.visible = true
 		
 	defeated = true
 	respawn_timer_running = true
-	print("group defeated")
+	
 
 func _process(delta):
 	if combo_timer_running:
@@ -91,6 +106,7 @@ func _process(delta):
 			respawn()
 
 func respawn():
+	generate_line2D()
 	defeated = false
 	last_number_hit = -1
 	show_enemy_to_hit_visually()
@@ -98,3 +114,7 @@ func respawn():
 		if e.active == false:
 			e.respawn()
 
+func generate_line2D():
+	line2d.clear_points()
+	for e in enemies:
+		line2d.add_point(e.position)

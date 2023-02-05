@@ -11,6 +11,7 @@ var number_in_group
 
 
 
+
 enum STATE{
 	vulnerable,
 	aggressive
@@ -23,7 +24,6 @@ var current_state = STATE.aggressive
 
 var current_timer
 var current_state_index
-
 
 func _ready():
 	sprite = $Sprite2D
@@ -68,5 +68,9 @@ func on_body_exited(body):
 
 
 func respawn():
+	print("hi")
+	get_child(3).current_animation = "Respawn2"
+	get_child(3).play()
 	active = true
 	visible = true
+	

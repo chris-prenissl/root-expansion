@@ -7,13 +7,18 @@
 script = ExtResource("1_u6sox")
 energy_scene_path = "res://OtherScenes/energy.tscn"
 
-[node name="Enemy3" parent="." instance=ExtResource("1_uv0l8")]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("1_uv0l8")]
 position = Vector2(-3, 239)
 pattern_timers = [1.0, 1.0]
 
-[node name="Enemy2" parent="." instance=ExtResource("1_uv0l8")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("1_uv0l8")]
 position = Vector2(198, 89)
 pattern_timers = [1.0, 1.0]
 
-[node name="Enemy" parent="." instance=ExtResource("1_uv0l8")]
+[node name="Enemy" parent="Enemies" instance=ExtResource("1_uv0l8")]
 pattern_timers = [1.0, 1.0]
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0.4, 0.647059, 0.443137, 1)
