@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3q0kqjxgi5ew"]
+[gd_scene load_steps=18 format=3 uid="uid://d3q0kqjxgi5ew"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kpkap"]
 [ext_resource type="Texture2D" uid="uid://dab53pvbwpq8u" path="res://Art/GlobalGameJam_-_char_spritesheet.png" id="2_5l28a"]
@@ -6,17 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnxqq"]
 radius = 37.2634
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oaida"]
-atlas = ExtResource("2_5l28a")
-region = Rect2(0, 200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aeqiv"]
-atlas = ExtResource("2_5l28a")
-region = Rect2(200, 200, 200, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfpo4"]
 atlas = ExtResource("2_5l28a")
 region = Rect2(400, 800, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh0sd"]
+atlas = ExtResource("2_5l28a")
+region = Rect2(600, 200, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doyyw"]
 atlas = ExtResource("2_5l28a")
@@ -42,10 +38,6 @@ region = Rect2(200, 200, 200, 200)
 atlas = ExtResource("2_5l28a")
 region = Rect2(400, 200, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oh0sd"]
-atlas = ExtResource("2_5l28a")
-region = Rect2(600, 200, 200, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nld0n"]
 atlas = ExtResource("2_5l28a")
 region = Rect2(0, 0, 200, 200)
@@ -66,13 +58,15 @@ region = Rect2(200, 200, 200, 200)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oaida")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aeqiv")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_dfpo4")
+}],
+"loop": false,
+"name": &"dash_diagonally_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh0sd")
 }],
 "loop": false,
 "name": &"dash_down",
@@ -104,14 +98,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oh0sd")
-}],
-"loop": false,
-"name": &"falling",
 "speed": 5.0
 }, {
 "frames": [{
@@ -152,7 +138,7 @@ shape = SubResource("CircleShape2D_lnxqq")
 position = Vector2(2.08165e-12, -3)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gtuf0")
-animation = &"landing"
+animation = &"dash_down"
 
 [node name="FloorDetector" type="Area2D" parent="."]
 position = Vector2(0, -1)

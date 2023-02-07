@@ -1967,6 +1967,7 @@ position = Vector2(-7045, -6448)
 position = Vector2(-38, -280)
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/LeftSide/StaticBody2D7"]
+modulate = Color(1, 1, 1, 0)
 texture_repeat = 2
 position = Vector2(6667, 5395)
 texture = ExtResource("3_5rjep")
@@ -2011,7 +2012,7 @@ polygon = PackedVector2Array(-6917, -5583, -6850, -5500, -6453, -5541, -6496, -5
 position = Vector2(5, -3)
 polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Checkpoint", "Floor", "Treeplatform"]]
+[node name="StaticBody2D9" type="StaticBody2D" parent="Platforms/LeftSide" groups=["Floor", "Treeplatform"]]
 position = Vector2(-2829, -10588)
 scale = Vector2(3, 3)
 
@@ -2028,62 +2029,6 @@ polygon = PackedVector2Array(-6917, -5583, -6850, -5500, -6453, -5541, -6496, -5
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/LeftSide/StaticBody2D9"]
 position = Vector2(5, -3)
 polygon = PackedVector2Array(-258, -182, 173, -230, 209, -150, -97, -115)
-
-[node name="limit" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-10677, -2017)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit3" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-21051, 2463)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit3"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit4" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-26069, 2490)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit4"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit5" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-17445, -2532)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit5"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit6" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-22638, -2572)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit6"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit7" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-27804, -2478)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit7"]
-position = Vector2(3993.5, -3180.5)
-shape = SubResource("RectangleShape2D_f3b8v")
-
-[node name="limit2" type="Area2D" parent="." groups=["Limit"]]
-position = Vector2(-10684, -2017)
-script = ExtResource("9_mm5ub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limit2"]
-position = Vector2(8728, -6522)
-shape = SubResource("RectangleShape2D_f3b8v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2135,10 +2080,69 @@ text = "level: 3"
 
 [node name="DayNight" parent="CanvasLayer" instance=ExtResource("13_8l8of")]
 mouse_filter = 2
+time_is_running = false
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_gbrit")
 autoplay = true
+
+[node name="Limits" type="Node2D" parent="."]
+
+[node name="limit" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-10677, -2017)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit3" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-21051, 2463)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit3"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit4" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-26069, 2490)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit4"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit5" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-17445, -2532)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit5"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit6" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-22638, -2572)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit6"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit7" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-27804, -2478)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit7"]
+position = Vector2(3993.5, -3180.5)
+shape = SubResource("RectangleShape2D_f3b8v")
+
+[node name="limit2" type="Area2D" parent="Limits" groups=["Limit"]]
+position = Vector2(-10684, -2017)
+script = ExtResource("9_mm5ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/limit2"]
+position = Vector2(8728, -6522)
+shape = SubResource("RectangleShape2D_f3b8v")
 
 [editable path="EnemyGroups/LeftSide/EnemyGroup"]
 [editable path="EnemyGroups/LeftSide/EnemyGroup2"]

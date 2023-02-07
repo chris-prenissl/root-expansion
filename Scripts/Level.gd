@@ -68,9 +68,4 @@ func _process(delta):
 		end_of_the_game()
 
 func end_of_the_game():
-<<<<<<< HEAD
-	print("total game over")
-	get_tree().change_scene
-=======
 	get_tree().change_scene_to_file("res://OtherScenes/Game_Over.tscn")
->>>>>>> e31b7336305dc8137fcd3e310aa47aa3eb7fcdf3

@@ -4,6 +4,7 @@ extends Control
 @export var foreground: TextureRect
 
 @onready var bar_length = foreground.size.x 
+@export var time_is_running = true
 
 var day_value: float
 
@@ -11,6 +12,8 @@ func _ready():
 	day_value = 1
 	
 func _process(delta):
+	if !time_is_running:
+		return
 	day_value -= time_speed*delta
 	
 	if day_value <= 0:

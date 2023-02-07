@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var sprite: AnimatedSprite2D
+#@export var animation_diagonally_up_threshhold = 
 
 var GRAVITY = 2000
 
@@ -8,7 +9,7 @@ var floor_detector
 var last_checkpoint = Vector2.ZERO
 var start_pos
 
-var max_dash_distance = 45
+var max_dash_distance = 42
 var min_click_distance_from_player = 100
 var max_click_distance_from_player = 500
 @onready var last_click_mouse_position = Vector2.ZERO
@@ -19,9 +20,9 @@ var start_acceleration = 500
 var acceleration = start_acceleration
 var acc_exponential = 5
 
-var start_deceleration = 500
+var start_deceleration = 300
 var deceleration = start_deceleration
-var dec_exponential = 5
+var dec_exponential = 1
 
 var speed = 0
 var max_speed = 3000
@@ -80,7 +81,6 @@ func _physics_process(delta):
 	if dashing:
 		add_to_travelled_distance()
 		pass
-	animate_sprite()
 
 func on_floor_detector_entered(body):
 	if body.is_in_group("Floor"):
@@ -88,11 +88,9 @@ func on_floor_detector_entered(body):
 		refill_dashes()
 		grounded = true
 		if body.is_in_group("Checkpoint"):
-			print(body.get_child(0).position)
 			last_checkpoint = body.get_child(0).global_position
 			
 		if body.is_in_group("Treeplatform"):
-			print("hi")
 			emit_signal("landed_on_tree_platform")
 func on_floor_detector_exited(body):
 	if body.is_in_group("Floor"):
@@ -123,6 +121,7 @@ func start_dashing():
 	var mouse_direction = last_click_mouse_position.normalized()
 	dir = mouse_direction
 	velocity = Vector2(speed * mouse_direction.x, speed * mouse_direction.y)
+	animate_sprite()
 	
 func apply_gravity(delta):
 	velocity.y += delta * GRAVITY
@@ -178,36 +177,32 @@ func respawn():
 	
 func add_energy():
 	amount_of_energy += 1
-	print(amount_of_energy)
 	show_energy_text()
 
 func animate_sprite():
 	if sprite.is_playing():
 		return
-	
-	var view_dir = get_local_mouse_position().normalized()
-	var moving_up = !grounded && position.y < last_position.y
-	var falling = !grounded && position.y > last_position.y
-	var idle = grounded
-	var is_facing_right = view_dir.x > 0
-	sprite.flip_h = is_facing_right
-	
-	
-	if dashing:
-		const animation = "dash_"
-		if moving_up:
-			sprite.animation = animation + "up"
-		elif falling:
-			sprite.animation = animation + "down"
-		else:
-			sprite.animation = animation + "horizontal"
-	elif idle:
-		sprite.animation = "idle"
-	elif falling:
-		sprite.animation = "falling"
-	else:
-		sprite.animation = "landing"
-	
+		
+	var angle_to_mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
+	print(angle_to_mouse)
+	if angle_to_mouse <= 10 and angle_to_mouse > -46:
+		print("right")
+	elif angle_to_mouse <= -46 and angle_to_mouse > -20:
+		print("up right")
+	elif angle_to_mouse <= -20 and angle_to_mouse > -111:
+		print("up")
+	elif angle_to_mouse <= -111 and angle_to_mouse > -160:
+		print("up left")
+	elif angle_to_mouse <= -160 and angle_to_mouse > -180:
+		print("left")
+		
+	elif angle_to_mouse <= 180 and angle_to_mouse > 111:
+		print("down left")
+	elif angle_to_mouse <= 110 and angle_to_mouse > 70:
+		print("down")
+	elif angle_to_mouse <= 69 and angle_to_mouse >= 9:
+		print("down right")
+
 	sprite.play()
 
 func show_energy_text():
