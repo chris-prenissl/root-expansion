@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var sprite: AnimatedSprite2D
+var sprite: AnimatedSprite2D
 #@export var animation_diagonally_up_threshhold = 
 
 var GRAVITY = 2000
@@ -47,6 +47,8 @@ var level
 
 var dashing_active = true
 
+var is_playing_dash_animation
+
 signal landed_on_tree_platform
 
 func _ready():
@@ -58,6 +60,9 @@ func _ready():
 	floor_detector = $FloorDetector
 	floor_detector.connect("body_entered", on_floor_detector_entered)
 	floor_detector.connect("body_exited", on_floor_detector_exited)
+	sprite = $Sprite
+	sprite.connect("animation_finished", sprite_animation_finished)
+	play_idle_animation()
 
 func _unhandled_input(event):
 	if !dashing_active:
@@ -121,7 +126,7 @@ func start_dashing():
 	var mouse_direction = last_click_mouse_position.normalized()
 	dir = mouse_direction
 	velocity = Vector2(speed * mouse_direction.x, speed * mouse_direction.y)
-	animate_sprite()
+	animate_dash()
 	
 func apply_gravity(delta):
 	velocity.y += delta * GRAVITY
@@ -131,6 +136,7 @@ func decelerate():
 	deceleration += dec_exponential
 	velocity = Vector2(speed * dir.x, speed * dir.y)
 	if speed <= 0:
+		#play_idle_animation()
 		velocity = Vector2.ZERO
 		speed = 0
 		decelerating = false
@@ -157,6 +163,18 @@ func stop_dashing():
 	GRAVITY = 2000
 	velocity = Vector2.ZERO
 
+func play_idle_animation():
+	sprite.stop()
+	sprite.flip_h = false
+	sprite.animation = "idle"
+	sprite.play()
+
+func play_falling_animation():
+	sprite.stop()
+	sprite.flip_h = false
+	sprite.animation = "dash_down"
+	sprite.play()
+
 
 func game_over():
 	velocity = Vector2.ZERO
@@ -179,10 +197,11 @@ func add_energy():
 	amount_of_energy += 1
 	show_energy_text()
 
-func animate_sprite():
+func animate_dash():
 	#if sprite.is_playing():
 	#	return
-		
+	sprite.stop()
+	is_playing_dash_animation = true
 	var angle_to_mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
 	print(angle_to_mouse)
 	if angle_to_mouse <= 10 and angle_to_mouse > -20:
@@ -212,5 +231,16 @@ func animate_sprite():
 
 	sprite.play()
 
+
+
 func show_energy_text():
 	energy_text.text = str(amount_of_energy) + "/" + str(level.next_level_energy_requirement)
+
+func sprite_animation_finished():
+	if is_playing_dash_animation:
+		is_playing_dash_animation = false
+		if grounded:
+			play_idle_animation()
+		else:
+			print("hello")
+			play_falling_animation()

@@ -133,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rjd26")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -152,9 +152,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqkjw"]
 size = Vector2(68, 18)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kpkap")
-sprite = NodePath("Sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0)
@@ -164,7 +163,7 @@ shape = SubResource("CircleShape2D_lnxqq")
 position = Vector2(2.08165e-12, -3)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gtuf0")
-animation = &"dash_diagonally_up"
+animation = &"landing"
 
 [node name="FloorDetector" type="Area2D" parent="."]
 position = Vector2(0, -1)
