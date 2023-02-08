@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3q0kqjxgi5ew"]
+[gd_scene load_steps=21 format=3 uid="uid://d3q0kqjxgi5ew"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kpkap"]
 [ext_resource type="Texture2D" uid="uid://dab53pvbwpq8u" path="res://Art/GlobalGameJam_-_char_spritesheet.png" id="2_5l28a"]
@@ -9,6 +9,18 @@ radius = 37.2634
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfpo4"]
 atlas = ExtResource("2_5l28a")
 region = Rect2(400, 800, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8qx8"]
+atlas = ExtResource("2_5l28a")
+region = Rect2(0, 600, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlcdp"]
+atlas = ExtResource("2_5l28a")
+region = Rect2(200, 600, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af8n3"]
+atlas = ExtResource("2_5l28a")
+region = Rect2(400, 600, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh0sd"]
 atlas = ExtResource("2_5l28a")
@@ -62,6 +74,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash_diagonally_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8qx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlcdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af8n3")
+}],
+"loop": false,
+"name": &"dash_diagonally_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -138,7 +164,7 @@ shape = SubResource("CircleShape2D_lnxqq")
 position = Vector2(2.08165e-12, -3)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gtuf0")
-animation = &"dash_down"
+animation = &"dash_diagonally_up"
 
 [node name="FloorDetector" type="Area2D" parent="."]
 position = Vector2(0, -1)

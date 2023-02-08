@@ -180,28 +180,35 @@ func add_energy():
 	show_energy_text()
 
 func animate_sprite():
-	if sprite.is_playing():
-		return
+	#if sprite.is_playing():
+	#	return
 		
 	var angle_to_mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
 	print(angle_to_mouse)
-	if angle_to_mouse <= 10 and angle_to_mouse > -46:
-		print("right")
-	elif angle_to_mouse <= -46 and angle_to_mouse > -20:
-		print("up right")
-	elif angle_to_mouse <= -20 and angle_to_mouse > -111:
-		print("up")
+	if angle_to_mouse <= 10 and angle_to_mouse > -20:
+		sprite.flip_h = true
+		sprite.animation = "dash_horizontal"
+	elif angle_to_mouse <= -20 and angle_to_mouse > -46:
+		sprite.flip_h = true
+		print("dash right up")
+		sprite.animation = "dash_diagonally_up"
+	elif angle_to_mouse <= -46 and angle_to_mouse > -111:
+		sprite.animation = "dash_up"
 	elif angle_to_mouse <= -111 and angle_to_mouse > -160:
-		print("up left")
+		sprite.flip_h = false
+		sprite.animation = "dash_diagonally_up"
 	elif angle_to_mouse <= -160 and angle_to_mouse > -180:
-		print("left")
+		sprite.flip_h = false
+		sprite.animation = "dash_horizontal"
 		
 	elif angle_to_mouse <= 180 and angle_to_mouse > 111:
-		print("down left")
+		sprite.flip_h = false
+		sprite.animation = "dash_diagonally_down"
 	elif angle_to_mouse <= 110 and angle_to_mouse > 70:
-		print("down")
+		sprite.animation = "dash_down"
 	elif angle_to_mouse <= 69 and angle_to_mouse >= 9:
-		print("down right")
+		sprite.flip_h = true
+		sprite.animation = "dash_diagonally_down"
 
 	sprite.play()
 
